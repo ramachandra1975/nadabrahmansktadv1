@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanskrit — The Eternal Language | NadaBrahman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   FOUNDATIONS
+═══════════════════════════════════════════════════════════════ */
+:root {
+  --ink:        #0f0b07;
+  --parchment:  #faf4e8;
+  --parch-mid:  #f0e6ca;
+  --parch-deep: #e2d4b0;
+  --saffron:    #c9963a;
+  --saffron-lt: #e8b85c;
+  --vermilion:  #b83a1a;
+  --vermilion-lt:#d4610a;
+  --teal-deep:  #0d4a42;
+  --teal:       #1a7a6e;
+  --teal-lt:    #2aad9a;
+  --indigo:     #1a1450;
+  --plum:       #4a1a6e;
+  --crimson:    #8b1a2a;
+  --gold-line:  rgba(201,150,58,0.4);
+  --shadow:     rgba(15,11,7,0.25);
+  --text-body:  #2a1f0f;
+  --text-muted: #6b5a3e;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--ink);
+  color: var(--parchment);
+  font-family: 'Crimson Pro', 'Georgia', serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ═══ BACKGROUND TEXTURE ═══ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(201,150,58,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 90%, rgba(26,122,110,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(74,26,110,0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ═══ DEVANAGARI WATERMARK ═══ */
+.deva-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: clamp(120px, 20vw, 280px);
+  color: rgba(201,150,58,0.03);
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO HEADER
+═══════════════════════════════════════════════════════════════ */
+.module-hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 60px 24px 40px;
+  border-bottom: 1px solid var(--gold-line);
+  background: linear-gradient(180deg,
+    rgba(201,150,58,0.08) 0%,
+    rgba(15,11,7,0) 100%);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--saffron);
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  margin-bottom: 32px;
+}
+.back-link:hover { opacity: 1; }
+
+.hero-om {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 48px;
+  color: var(--saffron);
+  line-height: 1;
+  margin-bottom: 16px;
+  text-shadow: 0 0 40px rgba(201,150,58,0.4);
+  animation: om-pulse 4s ease-in-out infinite;
+}
+@keyframes om-pulse {
+  0%,100% { text-shadow: 0 0 30px rgba(201,150,58,0.3); }
+  50%      { text-shadow: 0 0 60px rgba(201,150,58,0.6); }
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--parchment);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.hero-title span { color: var(--saffron); }
+
+.hero-subtitle {
+  font-family: 'Philosopher', serif;
+  font-style: italic;
+  font-size: clamp(14px, 2vw, 20px);
+  color: var(--parch-deep);
+  opacity: 0.8;
+  max-width: 680px;
+  margin: 0 auto 28px;
+}
+
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 0;
+}
+.badge {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border: 1px solid var(--gold-line);
+  border-radius: 20px;
+  color: var(--saffron);
+  background: rgba(201,150,58,0.06);
+}
+
+.hero-deva {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 22px;
+  color: var(--saffron);
+  opacity: 0.6;
+  margin-top: 24px;
+  letter-spacing: 0.08em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LAYER SELECTOR
+═══════════════════════════════════════════════════════════════ */
+.layer-selector {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 28px 24px 0;
+}
+
+.layer-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 12px 32px;
+  border: 1px solid var(--gold-line);
+  background: transparent;
+  color: var(--parch-deep);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.layer-btn:first-child { border-radius: 4px 0 0 4px; }
+.layer-btn:last-child  { border-radius: 0 4px 4px 0; border-left: none; }
+
+.layer-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--saffron);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+.layer-btn.active {
+  color: var(--ink);
+  border-color: var(--saffron);
+}
+.layer-btn.active::before { transform: scaleX(1); }
+.layer-btn:not(.active):hover { color: var(--saffron); }
+
+.layer-label {
+  display: block;
+  font-size: 0.55rem;
+  opacity: 0.7;
+  margin-top: 2px;
+  letter-spacing: 0.08em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TAB NAVIGATION RAIL
+═══════════════════════════════════════════════════════════════ */
+.tab-rail-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15,11,7,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gold-line);
+  padding: 0 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tab-rail-wrapper::-webkit-scrollbar { display: none; }
+
+.tab-rail {
+  display: flex;
+  gap: 2px;
+  min-width: max-content;
+  padding: 10px 0;
+}
+
+.tab-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--parch-deep);
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  opacity: 0.6;
+  position: relative;
+  min-width: 80px;
+}
+.tab-btn .tab-icon { font-size: 16px; line-height: 1; }
+.tab-btn .tab-label { font-size: 0.58rem; }
+
+.tab-btn:hover { opacity: 1; color: var(--saffron-lt); }
+
+.tab-btn.active {
+  opacity: 1;
+  color: var(--ink);
+  background: var(--saffron);
+}
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--saffron);
+  border-radius: 50%;
+}
+
+/* L2 tab colors */
+.tab-btn[data-color="#1a7a6e"].active { background: var(--teal); }
+.tab-btn[data-color="#1a7a6e"].active::after { background: var(--teal); }
+.tab-btn[data-color="#8b1a2a"].active { background: var(--crimson); }
+.tab-btn[data-color="#8b1a2a"].active::after { background: var(--crimson); }
+.tab-btn[data-color="#4a1a6e"].active { background: var(--plum); }
+.tab-btn[data-color="#4a1a6e"].active::after { background: var(--plum); }
+.tab-btn[data-color="#d4610a"].active { background: var(--vermilion-lt); }
+.tab-btn[data-color="#d4610a"].active::after { background: var(--vermilion-lt); }
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTENT AREA
+═══════════════════════════════════════════════════════════════ */
+.layer-panel { display: none; }
+.layer-panel.active { display: block; }
+
+.tab-panel { display: none; }
+.tab-panel.active {
+  display: block;
+  animation: fadeUp 0.4s ease;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══ PANEL HEADER ═══ */
+.panel-hero {
+  position: relative;
+  padding: 52px 32px 40px;
+  border-bottom: 1px solid var(--gold-line);
+  overflow: hidden;
+}
+.panel-hero::before {
+  content: attr(data-deva);
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 120px;
+  opacity: 0.05;
+  color: var(--saffron);
+  pointer-events: none;
+  line-height: 1;
+}
+.panel-hero-inner { max-width: 900px; }
+.panel-icon { font-size: 36px; margin-bottom: 12px; display: block; }
+.panel-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(22px, 3.5vw, 38px);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: var(--parchment);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.panel-title .accent { color: var(--saffron); }
+.panel-sub {
+  font-family: 'Philosopher', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--parch-deep);
+  opacity: 0.75;
+}
+.panel-line {
+  width: 80px;
+  height: 2px;
+  margin-top: 20px;
+  border-radius: 2px;
+}
+
+/* ═══ CONTENT BODY ═══ */
+.panel-body {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 32px 60px;
+}
+
+.section-card {
+  margin-bottom: 40px;
+  padding: 32px 36px;
+  background: rgba(250,244,232,0.03);
+  border: 1px solid rgba(201,150,58,0.12);
+  border-radius: 8px;
+  position: relative;
+  transition: border-color 0.3s;
+}
+.section-card:hover {
+  border-color: rgba(201,150,58,0.28);
+  background: rgba(250,244,232,0.04);
+}
+.section-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+}
+
+.section-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--saffron-lt);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.section-body {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--parch-mid);
+}
+.section-body p + p { margin-top: 14px; }
+
+/* Sanskrit terms inline */
+.skt {
+  font-family: 'Philosopher', serif;
+  font-style: italic;
+  color: var(--saffron-lt);
+}
+.deva-inline {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 1.1em;
+  color: var(--saffron);
+}
+
+/* ═══ REFS BAR ═══ */
+.refs-bar {
+  margin: 0 32px 40px;
+  padding: 18px 24px;
+  border: 1px solid var(--gold-line);
+  border-radius: 6px;
+  background: rgba(201,150,58,0.04);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.refs-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  opacity: 0.7;
+  white-space: nowrap;
+}
+.ref-link {
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.88rem;
+  color: var(--teal-lt);
+  text-decoration: none;
+  padding: 3px 10px;
+  border: 1px solid rgba(42,173,154,0.25);
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.ref-link:hover {
+  background: rgba(42,173,154,0.1);
+  border-color: var(--teal-lt);
+  color: var(--parchment);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LAYER 2 SPECIFIC — PRACTICAL APPLICATIONS
+═══════════════════════════════════════════════════════════════ */
+.l2-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+.l2-feature-card {
+  padding: 24px;
+  border: 1px solid var(--gold-line);
+  border-radius: 8px;
+  background: rgba(250,244,232,0.02);
+  transition: all 0.3s;
+}
+.l2-feature-card:hover {
+  background: rgba(250,244,232,0.05);
+  border-color: rgba(201,150,58,0.3);
+  transform: translateY(-3px);
+}
+.l2-feature-icon { font-size: 28px; margin-bottom: 10px; }
+.l2-feature-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--saffron-lt);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.l2-feature-text {
+  font-size: 0.95rem;
+  color: var(--parch-mid);
+  line-height: 1.7;
+}
+
+/* ═══ KARANA GRID ═══ */
+.karanas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+.karana-item {
+  padding: 12px;
+  border: 1px solid rgba(201,150,58,0.15);
+  border-radius: 6px;
+  background: rgba(201,150,58,0.04);
+  text-align: center;
+  cursor: default;
+  transition: all 0.2s;
+}
+.karana-item:hover {
+  border-color: rgba(201,150,58,0.4);
+  background: rgba(201,150,58,0.08);
+}
+.karana-num {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  color: var(--saffron);
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 4px;
+}
+.karana-name {
+  font-family: 'Philosopher', serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--parch-mid);
+}
+.karana-deva {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 0.9rem;
+  color: var(--saffron-lt);
+  opacity: 0.7;
+  display: block;
+  margin-top: 4px;
+}
+
+/* ═══ MUDRA TABLE ═══ */
+.mudra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+.mudra-card {
+  padding: 18px;
+  border: 1px solid rgba(26,122,110,0.25);
+  border-radius: 8px;
+  background: rgba(26,122,110,0.04);
+  transition: all 0.25s;
+}
+.mudra-card:hover {
+  border-color: rgba(42,173,154,0.5);
+  background: rgba(26,122,110,0.08);
+}
+.mudra-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--teal-lt);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.mudra-deva {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 1rem;
+  color: var(--saffron);
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 6px;
+}
+.mudra-meaning {
+  font-size: 0.88rem;
+  color: var(--parch-mid);
+  line-height: 1.6;
+}
+
+/* ═══ TIMELINE ═══ */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  margin-top: 20px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--saffron), transparent);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -26px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--saffron);
+  border: 2px solid var(--ink);
+  box-shadow: 0 0 0 2px var(--saffron);
+}
+.timeline-era {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--saffron);
+  opacity: 0.8;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.timeline-event {
+  font-size: 1rem;
+  color: var(--parch-mid);
+  line-height: 1.7;
+}
+
+/* ═══ PHONEME GRID ═══ */
+.phoneme-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+.phoneme-table th {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  opacity: 0.8;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--gold-line);
+  background: rgba(201,150,58,0.05);
+}
+.phoneme-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(201,150,58,0.08);
+  color: var(--parch-mid);
+  vertical-align: top;
+}
+.phoneme-table tr:hover td {
+  background: rgba(201,150,58,0.04);
+}
+.phoneme-cell {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 1.2rem;
+  color: var(--saffron-lt);
+  letter-spacing: 0.15em;
+}
+.iast-cell {
+  font-family: 'Philosopher', serif;
+  font-style: italic;
+  color: var(--teal-lt);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SEARCH BAR
+═══════════════════════════════════════════════════════════════ */
+.module-search {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 32px auto 0;
+  padding: 0 24px;
+}
+.module-search input {
+  width: 100%;
+  padding: 14px 50px 14px 20px;
+  background: rgba(250,244,232,0.06);
+  border: 1px solid var(--gold-line);
+  border-radius: 6px;
+  color: var(--parchment);
+  font-family: 'Crimson Pro', serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.module-search input:focus {
+  border-color: var(--saffron);
+}
+.module-search input::placeholder { color: var(--parch-deep); opacity: 0.5; }
+.search-icon {
+  position: absolute;
+  right: 38px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROGRESS INDICATOR
+═══════════════════════════════════════════════════════════════ */
+.tab-counter {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: var(--saffron);
+  opacity: 0.5;
+  padding: 10px;
+  border-bottom: 1px solid var(--gold-line);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: rgba(15,11,7,0.5); }
+::-webkit-scrollbar-thumb { background: var(--saffron); opacity: 0.4; border-radius: 3px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════════ */
+.module-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid var(--gold-line);
+  background: rgba(201,150,58,0.03);
+  margin-top: 20px;
+}
+.footer-om {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 36px;
+  color: var(--saffron);
+  opacity: 0.5;
+  display: block;
+  margin-bottom: 12px;
+}
+.footer-text {
+  font-family: 'Philosopher', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--parch-deep);
+  opacity: 0.6;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+.footer-links a {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  opacity: 0.5;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.footer-links a:hover { opacity: 1; }
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .panel-body { padding: 24px 16px 40px; }
+  .panel-hero { padding: 36px 16px 28px; }
+  .section-card { padding: 20px 20px; }
+  .refs-bar { margin: 0 16px 32px; }
+  .panel-hero::before { display: none; }
+  .tab-btn { min-width: 70px; padding: 8px 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="deva-watermark">संस्कृतम्</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="module-hero">
+  <a href="https://nadabrahmanadv1.culturalmusings.com/" class="back-link">← NadaBrahman</a>
+  <div class="hero-om">ॐ</div>
+  <h1 class="hero-title">Sanskrit — <span>The Eternal Language</span></h1>
+  <p class="hero-subtitle">The backbone of Nāda Brahman — from Proto-Indo-European origins to AI — 5,000 years of living knowledge</p>
+  <div class="hero-badges">
+    <span class="badge">Research Reference</span>
+    <span class="badge">Encyclopaedic</span>
+    <span class="badge">14 + 14 Tabs</span>
+    <span class="badge">Two Layers</span>
+    <span class="badge">Living Archive</span>
+  </div>
+  <div class="hero-deva">संस्कृतं — देवभाषा — वाक् ब्रह्म — नादब्रह्म</div>
+</header>
+
+<!-- ═══════════ SEARCH ═══════════ -->
+<div class="module-search">
+  <input type="text" id="moduleSearch" placeholder="Search Sanskrit topics, terms, concepts…" oninput="handleSearch(this.value)">
+  <span class="search-icon">🔍</span>
+</div>
+
+<!-- ═══════════ LAYER SELECTOR ═══════════ -->
+<div class="layer-selector">
+  <button class="layer-btn active" onclick="switchLayer(1, this)">
+    ॥ LAYER I ॥
+    <span class="layer-label">Origin · Language · Evolution</span>
+  </button>
+  <button class="layer-btn" onclick="switchLayer(2, this)">
+    ॥ LAYER II ॥
+    <span class="layer-label">Practice · Arts · Applications</span>
+  </button>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     LAYER 1 — LANGUAGE EVOLUTION (14 Tabs)
+═══════════════════════════════════════════════ -->
+<div id="layer1" class="layer-panel active">
+  <div class="tab-counter" id="counter1">Tab 1 of 14 — Origins & Proto-Language</div>
+
+  <!-- TAB RAIL -->
+  <div class="tab-rail-wrapper">
+    <div class="tab-rail" id="tabRail1"></div>
+  </div>
+
+  <!-- TAB PANELS — rendered by JS -->
+  <div id="panels1"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     LAYER 2 — PRACTICAL APPLICATIONS (14 Tabs)
+═══════════════════════════════════════════════ -->
+<div id="layer2" class="layer-panel">
+  <div class="tab-counter" id="counter2">Tab 1 of 14 — Nāṭya Śāstra & Sanskrit</div>
+
+  <div class="tab-rail-wrapper">
+    <div class="tab-rail" id="tabRail2"></div>
+  </div>
+
+  <div id="panels2"></div>
+</div>
+
+<footer class="module-footer">
+  <span class="footer-om">ॐ</span>
+  <p class="footer-text">
+    "Oṃ ity ekākṣaraṃ brahma — OM, the one syllable, is Brahman" — Bhagavad Gītā 8.13
+  </p>
+  <div class="footer-links">
+    <a href="https://nadabrahmanadv1.culturalmusings.com/">← NadaBrahman Home</a>
+    <a href="https://sanskritdocuments.org" target="_blank">Sanskrit Documents</a>
+    <a href="https://vedicheritage.gov.in" target="_blank">Vedic Heritage India</a>
+    <a href="https://www.wisdomlib.org" target="_blank">Wisdom Library</a>
+    <a href="https://www.vedadhara.com" target="_blank">Vedadhara</a>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     DATA & RENDERING
+═══════════════════════════════════════════════ -->
+<script>
+/* ─── LAYER 1 DATA — 14 tabs ─── */
+const L1 = [
+  {
+    id:'origins', icon:'🌱', label:'Origins', sublabel:'Proto-Language',
+    color:'#c9963a', deva:'उद्गम',
+    subtitle:'From Proto-Indo-European to the birth of Vedic Sanskrit',
+    sections:[
+      { heading:'The Proto-Indo-European Root',
+        body:`Sanskrit belongs to the Indo-European language family — one of the largest and most studied linguistic families on earth, encompassing languages from Iceland to Sri Lanka. The common ancestor of all Indo-European languages — Proto-Indo-European (PIE) — was spoken approximately 4,500–6,000 years ago, likely in the Pontic-Caspian steppe (modern Ukraine and southern Russia), though the Anatolian and Indian homeland theories also command significant scholarly support. PIE was never recorded — it has been reconstructed through the rigorous comparative method, comparing cognates (related words) across daughter languages to deduce the ancestor forms.\n\nThe Sanskrit word for 'father' — <em>pitṛ</em> — directly cognates with Latin <em>pater</em>, Greek <em>patēr</em>, Old English <em>fæder</em>, Persian <em>pedar</em>. The Sanskrit <em>deva</em> (divine being) relates to Latin <em>deus</em>, Greek <em>theos</em>, Lithuanian <em>dievas</em>. The PIE root *<em>deywo-</em> derives from *<em>dyew-</em> (to shine, sky), giving Sanskrit <em>dyaus</em> (sky-god Dyaus Pitā — directly cognate with Latin Iuppiter/Jupiter, Greek Zeus Patēr).` },
+      { heading:'Pre-Vedic Period and the Indus Valley',
+        body:`The relationship between Sanskrit and the Indus Valley Civilization (c. 3300–1300 BCE) remains one of the most debated questions in South Asian archaeology and linguistics. The Indus script — preserved on some 4,000+ seals and tablets — remains undeciphered, meaning we cannot definitively establish whether its language was an ancestor of Sanskrit, a Dravidian language, or something else entirely.\n\nWhat is clear is that Sanskrit's earliest recorded form — Vedic Sanskrit — already shows evidence of profound linguistic sophistication and stability, suggesting centuries of prior development before its first texts were composed. The Ṛgveda's oldest hymns (c. 1500–1200 BCE) display features that comparative linguistics identifies as extremely archaic — closer to reconstructed PIE in some respects than other ancient Indo-European languages like Ancient Greek or Latin.` },
+      { heading:'Linguistic Conservatism and Archaic Features',
+        body:`Sanskrit's extraordinary conservatism — its retention of ancient features that other Indo-European languages lost — makes it uniquely valuable to historical linguistics. Sanskrit preserves all three grammatical genders, all eight grammatical cases of PIE (nominative, accusative, instrumental, dative, ablative, genitive, locative, vocative), three numbers (singular, dual, plural), and a complex system of verbal conjugations.\n\nThe preservation of the dual number (<em>dvivacana</em>) — used specifically when speaking of exactly two of something — has almost completely disappeared from other Indo-European languages. Sanskrit's eight-case system allows extraordinarily precise expression of grammatical relationships without prepositions, giving the language a logical clarity that inspired Pāṇini's grammar.` },
+      { heading:'Dating and Chronological Layers',
+        body:`The chronology of Sanskrit's development spans at least 3,500 years of documented history — and likely much more undocumented. Scholars broadly identify: <em>Ṛgvedic Sanskrit</em> (c. 1500–1200 BCE); <em>Later Vedic Sanskrit</em> (c. 1200–800 BCE); <em>Epic and Classical Sanskrit</em> (c. 500 BCE onwards, codified by Pāṇini's Aṣṭādhyāyī c. 400 BCE); <em>Buddhist Hybrid Sanskrit</em> (c. 100 BCE–600 CE); <em>Medieval Sanskrit</em> (600–1200 CE); <em>Modern Sanskrit</em> — still used in ritual, scholarly and creative contexts.\n\nThe Vedic and Classical Sanskrit forms differ substantially: Vedic has a freer word order, pitch accent, more irregular forms, and a richer subjunctive mood. Classical Sanskrit is more regularized, governed by Pāṇini's complete formal grammar.` },
+      { heading:'Sanskrit Among World Languages',
+        body:`In a global context, Sanskrit's position is extraordinary. It is the world's most grammatically precise language — Pāṇini's grammar describes it with such completeness that it has been compared to a formal mathematical system. It is the sacred language of Hinduism, Buddhism and Jainism — giving it a religious reach across 2 billion people's heritage. It is the source language for most Indic scripts and languages: Hindi, Bengali, Marathi, Gujarati, Odia, Punjabi, Sinhala, Nepali and many more are direct descendants. Even Malay, Thai, Khmer and Javanese carry Sanskrit loanwords in the thousands, testament to the reach of Sanskrit-mediated Indian civilization across maritime Southeast Asia.` }
+    ],
+    refs:[
+      {name:'Vedic Heritage India',url:'https://vedicheritage.gov.in/introduction/'},
+      {name:'Sanskrit Documents',url:'https://sanskritdocuments.org/'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'},
+      {name:'Hindupedia',url:'https://hindupedia.com/en/Veda'}
+    ]
+  },
+  {
+    id:'panini', icon:'📐', label:'Pāṇini', sublabel:'Aṣṭādhyāyī',
+    color:'#d4610a', deva:'पाणिनि',
+    subtitle:'The world\'s first formal grammar — 3,959 rules that defined a language',
+    sections:[
+      { heading:'Pāṇini — The Grammarian of Grammarians',
+        body:`Pāṇini (c. 4th century BCE) stands as one of the greatest intellectual achievements in human history. His <em>Aṣṭādhyāyī</em> — literally 'Eight Chapters' — consists of 3,959 sūtras (aphoristic rules) that completely and formally describe Classical Sanskrit in a system so precise and comprehensive that it anticipates, by more than two millennia, the methods of modern formal linguistics, mathematical logic, and computer science. Pāṇini's grammar is not a description of Sanskrit usage — it is a <em>generative system</em> that can produce every grammatical Sanskrit utterance and exclude every ungrammatical one.\n\nThe Aṣṭādhyāyī is written in a form so compressed that it can be memorized in its entirety — the density of information per syllable exceeds that of any other known intellectual document. The rules operate like an algorithm — a set of formal instructions that, applied in sequence to an input, produce a grammatical output.` },
+      { heading:'The Śivasūtras — Phonological Foundation',
+        body:`Before the 3,959 rules, Pāṇini prefixes 14 special sūtras called the <em>Māheśvara Sūtras</em> or <em>Śivasūtras</em> — a compressed arrangement of all Sanskrit phonemes (vowels and consonants) in a sequence that allows him to refer to any subset using just two markers. The legend is that Pāṇini received these 14 sūtras from the 14 beats of Shiva's ḍamaru (drum) — the sacred drum that Naṭarāja beats during the cosmic Tāṇḍava dance.\n\nThe 14 Śivasūtras: <em>a i u ṇ | ṛ ḷ k | e o ṅ | ai au c | ha ya va ra ṭ | la ṇ | ña ma ṅa ṇa na m | jha bha ñ | gha ḍha dha ṣ | ja ba ga ḍa da ś | kha pha cha ṭha tha ca ṭa ta v | ka pa y | śa ṣa sa r | ha l</em>. The connection to Shiva's dance — where the rhythm of creation (Nāda) produces the entire phonemic matrix — encodes the insight that all of language emerges from primordial sound.` },
+      { heading:'Structure and Legacy of the Aṣṭādhyāyī',
+        body:`The eight chapters are organized not by subject matter but by the formal needs of the generative system. Chapter 1 establishes technical terms and metalinguistic conventions. Chapters 2–3 deal with nominal compounds and derivational suffixes. Chapters 6–7 treat phonological alternations (sandhi, accent). Chapter 8 contains rules operating in a special 'suspended' mode.\n\nNoam Chomsky acknowledged Pāṇini's priority in the formal description of language; computer scientist Donald Knuth called Pāṇini's system "not merely the earliest known grammar but the most advanced grammar of any language." Kātyāyana (3rd century BCE) wrote supplementary notes; Patañjali (2nd century BCE) wrote the <em>Mahābhāṣya</em> — a philosophical masterwork that debates each rule with dialectical rigour.` },
+      { heading:'Sanskrit Grammar and Computer Science',
+        body:`The structural parallels between Pāṇini's grammar and modern computer science are not coincidental — they reflect the same underlying logic of formal systems. Pāṇini's sūtras function as production rules — exactly the formalism used in Backus-Naur Form (BNF), the standard notation for defining programming language syntax introduced in 1959. BNF was independently invented from Pāṇini's system, but the structural identity is complete.\n\nRick Briggs, in a landmark 1985 NASA Technical Report, demonstrated that Sanskrit's grammatical structure allows natural language sentences to be directly converted to logical notation without ambiguity — something no other natural language permits — making Sanskrit theoretically ideal as a programming language for AI. The Pāṇinian framework — finite rules generating infinite valid expressions — is structurally identical to Chomsky's generative grammar formalism.` },
+      { heading:'Pāṇinian Tradition: Mahābhāṣya to Siddhānta-Kaumudī',
+        body:`Patañjali's <em>Mahābhāṣya</em> ('Great Commentary') is not merely a grammar commentary but a philosophy of language, addressing questions of meaning, reference, the relationship between word and object, and the nature of grammatical correctness. It anticipates Wittgenstein's Philosophical Investigations in its attention to ordinary usage and semantic edge cases.\n\nBhaṭṭoji Dīkṣita's <em>Siddhānta-Kaumudī</em> (17th century CE) reorganized the rules by topic, making them far more learnable. The 19th-century Western discovery of Pāṇini's grammar directly triggered the birth of modern comparative linguistics as a scientific discipline. Pāṇini's sūtras are still the most compact and complete description of any language ever produced.` }
+    ],
+    refs:[
+      {name:'Sanskrit Documents',url:'https://sanskritdocuments.org/'},
+      {name:'Open Sadhaka',url:'https://www.opensadhaka.com/'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'}
+    ]
+  },
+  {
+    id:'phonology', icon:'🔊', label:'Phonology', sublabel:'Varṇamālā',
+    color:'#1a7a6e', deva:'वर्णमाला',
+    subtitle:'The world\'s most systematic alphabet — Sanskrit\'s science of sound',
+    sections:[
+      { heading:'The Varṇamālā — Garland of Phonemes',
+        body:`The Sanskrit alphabet — <em>Varṇamālā</em> (literally 'garland of phonemes') — is not merely a writing system but a precise scientific classification of the entire phonemic range of human vocal production. Unlike alphabets that evolved haphazardly, the Sanskrit varṇamālā was systematically organized by ancient phoneticians (<em>Śikṣā</em> scholars) based on empirical observation of the human vocal apparatus.\n\nThe 49 (or 52 by some counts) phonemes of Sanskrit are arranged in a grid organized by two parameters: <em>point of articulation</em> (sthāna) and <em>manner of articulation</em> (prayatna). Points proceed from throat to lips: kaṇṭhya (velar), tālavya (palatal), mūrdhanya (retroflex), dantya (dental), oṣṭhya (labial). For each point of articulation, there are exactly five phonemes: unvoiced unaspirated, unvoiced aspirated, voiced unaspirated, voiced aspirated, and nasal — a breathtaking systematicity.` },
+      { heading:'Vowels — Svara — The Living Breath',
+        body:`Sanskrit has 16 vowels (<em>svaras</em>) classified by three parameters: place of articulation (front, central, back), height (close, mid, open), and duration (short/<em>hrasva</em>, long/<em>dīrgha</em>, prolonged/<em>pluta</em> for 3 morae). The vowels: <em>a, ā, i, ī, u, ū, ṛ, ṝ, ḷ, e, ai, o, au</em> plus <em>anusvāra</em> (ṃ) and <em>visarga</em> (ḥ).\n\nThe vocalic r (ṛ) and l (ḷ) are unique to Sanskrit among surviving languages — vestiges of PIE syllabic resonants. The three-mora (<em>pluta</em>) vowel — used in calling out to someone at a distance — is found in no other documented language. Every vowel in Vedic Sanskrit also carries one of three tones (udātta/raised, anudātta/lowered, svarita/circumflex), making Vedic Sanskrit a fully tonal language.` },
+      { heading:'Sandhi — The Science of Junction',
+        body:`<em>Sandhi</em> (literally 'junction, joining') is the system of phonological changes at word and morpheme boundaries. These are not exceptions or irregularities — they are exceptionless phonological rules. When two words or morphemes meet, their boundary sounds merge, elide, assimilate or transform according to predictable rules. There are external sandhi rules (between words) and internal sandhi rules (within a word, at morpheme boundaries).\n\nExamples: word-final -a meets word-initial a- to produce ā (<em>rāma + āgacchati → rāmāgacchati</em>). There are approximately 200 sandhi rules in Pāṇini, all derivable from a small set of phonological principles. Sandhi creates the connected, flowing quality of Sanskrit speech — it is the grammar of continuity, the rule of how sounds breathe into each other.` },
+      { heading:'Śikṣā Literature — Vedic Phonetics',
+        body:`The <em>Śikṣā</em> (phonetics) texts are among the oldest technical literature in the world — the ancillary (<em>Vedāṅga</em>) texts dedicated to preserving the exact sound of Vedic recitation. Because the power of Vedic mantras was believed to reside in their precise phonetic form, the preservation of pronunciation was a matter of religious urgency.\n\nThe <em>Pāṇinīya Śikṣā</em> describes 63 phonemes and their precise production with anatomical accuracy. The <em>Prātiśākhyas</em> are more detailed — they give phonological rules specific to each Vedic branch. Together, the Śikṣā and Prātiśākhya literature constitutes the world's oldest tradition of scientific phonetics — predating by more than a millennium the Greek phonetic writings of Aristotle.` },
+      { heading:'Bīja Mantras — Phonemes as Cosmic Seeds',
+        body:`At the deepest level of Sanskrit phonological understanding lies the doctrine of <em>Bīja</em> ('seed') — the teaching that individual phonemes and short syllables are not merely sounds but concentrations of specific cosmic energies. In tantric tradition, every phoneme of the varṇamālā is identified with a specific goddess of the <em>Mātṛkā</em> pantheon, with a specific geometric form (yantra), and with a specific cosmic principle.\n\nThe bīja mantras — <em>OM</em> (the universal sound, combining a+u+m = the three states of consciousness), <em>HRĪM</em> (the bīja of the Divine Mother), <em>KLĪM</em> (bīja of attraction), <em>ŚRĪM</em> (bīja of Lakṣmī/abundance), <em>AIṂ</em> (bīja of Sarasvatī/knowledge), <em>KRĪM</em> (bīja of Kālī/transformation) — are phonological formulas whose power derives from specific combinations of points of articulation, producing specific patterns of vibration in the body, brain and subtle energy field.` }
+    ],
+    refs:[
+      {name:'Vedic Heritage India',url:'https://vedicheritage.gov.in/introduction/'},
+      {name:'Shlokam.org',url:'https://shlokam.org/shloka/rudram-namakam.htm'},
+      {name:'Manblunder',url:'https://manblunder.com/'},
+      {name:'Sanskrit Documents',url:'https://sanskritdocuments.org/'}
+    ]
+  },
+  {
+    id:'vedic', icon:'🔥', label:'Vedic Sanskrit', sublabel:'Ṛgveda',
+    color:'#c9963a', deva:'वैदिक',
+    subtitle:'The oldest recorded form — pitch-tonal language of the Vedic seers',
+    sections:[
+      { heading:'Characteristics of Vedic Sanskrit',
+        body:`Vedic Sanskrit differs from Classical Sanskrit in phonology, morphology, syntax and vocabulary to a degree comparable to the difference between Latin and modern Italian. The most striking difference is the pitch accent: every syllable in Vedic is marked as <em>udātta</em> (raised pitch), <em>anudātta</em> (non-raised) or <em>svarita</em> (falling circumflex). This accent is phonemically contrastive — changing the accent can change meaning — and its correct preservation in Vedic recitation is a religious duty.\n\nMorphologically, Vedic is considerably richer than Classical Sanskrit. Vedic preserves an active subjunctive mood, an injunctive mood, and an augmentless aorist used in prohibitions. The accent marks in written Vedic texts represent one of the oldest systems of musical notation in the world.` },
+      { heading:'The Ṛgveda — Humanity\'s Oldest Literature',
+        body:`The Ṛgveda — the oldest of the four Vedas — is composed in what is now called Rigvedic Sanskrit, the earliest stratum of attested Sanskrit. Its 10,552 mantras (<em>ṛcs</em>, 'praises') are organized in 1,028 hymns (<em>sūktas</em>) across 10 books (<em>Maṇḍalas</em>). The language of the oldest Maṇḍalas (2–7, called the 'family books') shows features closer to reconstructed Proto-Indo-Iranian than the younger books.\n\nThe Ṛgveda was composed orally — recited, memorized and transmitted through a system so meticulous that the text we have today is almost certainly identical to the original. This oral preservation was achieved through the <em>pāṭha</em> system: the text was memorized in eight different recitation patterns (padapāṭha, kramaḥ, jaṭā, māla, śikhā, rekhā, dhvaja, daṇḍa) where words were recited in different combinations and reversals — creating a cross-checking system of extraordinary redundancy.` },
+      { heading:'Sāmaveda — The Veda of Melody',
+        body:`The Sāmaveda is the Veda of melody — approximately 75% of its verses are derived from the Ṛgveda, but set to specific melodic patterns (<em>sāmans</em>) for ritual singing. The Sāmaveda is the direct progenitor of Indian classical music. Its seven primary svaras — <em>Ṣaḍja (Sa), Ṛṣabha (Ri), Gāndhāra (Ga), Madhyama (Ma), Pañcama (Pa), Dhaivata (Da), Niṣāda (Ni)</em> — are the seven notes of Indian music, and their names and ratios are derived from the Sāmavedic recitation tradition.\n\nThe Sāmavedic recitation uses three tones mapped to a descending melodic contour of approximately a fourth to a fifth — remarkably similar to the pentatonic scales that appear independently in musical traditions worldwide, suggesting that the natural resonance of the human voice produces similar melodic preferences across cultures.` },
+      { heading:'Brāhmaṇas, Āraṇyakas — Later Vedic Prose',
+        body:`The <em>Brāhmaṇas</em> — dense prose texts explaining Vedic ritual — show later Vedic Sanskrit: more regular than Ṛgvedic, moving towards Classical. Major Brāhmaṇas include the <em>Śatapatha Brāhmaṇa</em> (the largest Vedic text at 100 chapters), the <em>Aitareya Brāhmaṇa</em> and the <em>Taittirīya Brāhmaṇa</em>.\n\nThe <em>Āraṇyakas</em> ('forest texts') move from outer ritual to inner contemplation. Linguistically, they show the transition from Vedic to Classical Sanskrit — a gradual regularization and simplification of morphology while philosophical sophistication increases. The <em>Upaniṣads</em> emerge from the Āraṇyakas and complete the philosophical revolution — establishing Brahman, Ātman, Māyā, Karma and Mokṣa as the conceptual bedrock of Indian civilization.` },
+      { heading:'Upaniṣads — The Linguistic Turn to Philosophy',
+        body:`The 108 Upaniṣads mark the culmination of Vedic Sanskrit and the beginning of philosophical Sanskrit. The earliest (<em>Bṛhadāraṇyaka, Chāndogya</em>) are in Vedic prose; later ones (<em>Kaṭha, Muṇḍaka, Māṇḍūkya</em>) approach Classical Sanskrit. The Māṇḍūkya — the shortest (12 verses) and philosophically most dense — is almost entirely Classical in form.\n\nThe Upaniṣadic philosophical vocabulary represents one of the most extraordinary linguistic achievements in human history: the creation of a complete technical lexicon for describing the structure of consciousness. Words like <em>ātman, brahman, māyā, avidyā, mokṣa, karma, samsāra, turīya, prajñā</em> all receive their precise philosophical definitions in the Upaniṣads, and these definitions, with their Sanskrit precision, cannot be fully captured in any translation.` }
+    ],
+    refs:[
+      {name:'Vedic Heritage India',url:'https://vedicheritage.gov.in/introduction/'},
+      {name:'Veda Purana',url:'https://vedapurana.org/'},
+      {name:'Vedadhara',url:'https://www.vedadhara.com/'},
+      {name:'Hindu Media Wiki',url:'https://hindumediawiki.com/story.php?id=821'}
+    ]
+  },
+  {
+    id:'classical', icon:'🏛️', label:'Classical Sanskrit', sublabel:'Golden Age',
+    color:'#8b1a2a', deva:'शास्त्रीय',
+    subtitle:'Kālidāsa, Kāvya, Drama, Science — the Golden Age of Indian civilization',
+    sections:[
+      { heading:'The Emergence of Classical Sanskrit',
+        body:`Classical Sanskrit — the form of the language codified by Pāṇini's Aṣṭādhyāyī (c. 400 BCE) — differs from Vedic in several key ways. The morphological irregularities of Vedic are regularized; the pitch accent is replaced by a word-stress accent; the vocabulary is enriched by systematic derivation from Sanskrit roots using Pāṇinian affixes. The result is a language of extraordinary precision and expressive power — capable of conveying, in a single long compound, a complex of ideas that would require a full paragraph in English.\n\nClassical Sanskrit became the <em>lingua franca</em> of educated discourse across the Indian subcontinent from approximately 300 BCE to 1200 CE — used by scholars, poets, dramatists, philosophers, mathematicians, astronomers and physicians regardless of their mother tongue — analogous in function to medieval Latin in Europe.` },
+      { heading:'Kāvya — Classical Sanskrit Poetry',
+        body:`The <em>kāvya</em> tradition reached its highest development in the Gupta period (4th–6th century CE), often called the Golden Age of Sanskrit literature. Kālidāsa — universally acknowledged as the supreme poet of Sanskrit — wrote: <em>Abhijñānaśākuntalam</em> (which Goethe celebrated), <em>Meghadūtam</em> (The Cloud Messenger — a love poem where an exiled yakṣa asks a monsoon cloud to carry his message to his distant beloved), <em>Raghuvaṃśam</em> (tracing the lineage of Rāma), <em>Kumārasambhavam</em> (The Birth of Kumāra/Kārtikeya).\n\nOther giants: Bhāravi (<em>Kirātārjunīya</em> — notable for a chapter using only one consonant), Māgha (<em>Śiśupālavadha</em> — with a verse reading the same in four directions), Bhartṛhari (three centuries of aphoristic verse — Śṛṅgāra, Vairāgya, Nīti Śatakas).` },
+      { heading:'Sanskrit Drama — Nāṭaka',
+        body:`Sanskrit drama is one of the supreme achievements of world theatre — its theory inseparable from the Nāṭya Śāstra of Bharata Muni. Sanskrit plays are in mixed Sanskrit and Prakrit: high-status characters speak Sanskrit; women, servants and comic figures speak various Prakrit dialects. This sociolinguistic register system is itself a linguistic phenomenon — preserving a living snapshot of the diglossia that characterized ancient Indian society.\n\nMajor Sanskrit dramatists: Kālidāsa, Bhāsa (thirteen plays discovered in 1912), Śūdraka (<em>Mṛcchakaṭika</em> — The Little Clay Cart), Harṣa (7th century), Bhavabhūti (<em>Mālatīmādhava, Uttararāmacarita</em>). The dramaturgical theory — ten types of play, hero/heroine typology, the eight types of expression (sāttvikābhinaya) — is all elaborated in the Nāṭya Śāstra and its commentaries.` },
+      { heading:'Sanskrit Scientific Literature',
+        body:`Classical Sanskrit is the medium of an extraordinarily productive tradition of scientific writing. In mathematics: Āryabhaṭa (476 CE) wrote the <em>Āryabhaṭīya</em> — containing the earliest clear statement of the positional decimal system, calculation of π to 4 decimal places. Brahmagupta (628 CE) — the first text to systematically treat zero as a number and state rules for arithmetic with zero and negative numbers. Bhāskara II (1114 CE) wrote <em>Līlāvatī</em> (arithmetic), <em>Bījaganita</em> (algebra) in elegant Sanskrit verse.\n\nIn medicine: <em>Carakasaṃhitā</em> and <em>Suśrutasaṃhitā</em> contain surgical techniques (120 surgical instruments, 300 procedures including rhinoplasty), pharmacology (1,120 herbal formulations in Caraka), and the complete theory of the three doṣas (<em>vāta, pitta, kapha</em>).` },
+      { heading:'Sanskrit Philosophical Schools',
+        body:`The six classical schools of Hindu philosophy (<em>Ṣaḍdarśana</em>) — Nyāya, Vaiśeṣika, Sāṃkhya, Yoga, Mīmāṃsā, and Vedānta — all developed their technical vocabularies in Sanskrit, creating one of the most extensive philosophical lexicons in human history.\n\nParticularly noteworthy is the <em>Navya-Nyāya</em> school (New Logic, from the 10th century CE) — a system of technical Sanskrit philosophical notation so precise that modern logicians have recognized it as equivalent to modern predicate logic. Gangeśa's <em>Tattvacintāmaṇi</em> (c. 1325 CE) is considered the founding text of Navya-Nyāya and has been compared to Russell and Whitehead's <em>Principia Mathematica</em> in its ambition to formalize the foundations of knowledge.` }
+    ],
+    refs:[
+      {name:'Open Library — Advaita',url:'https://openlibrary.org/subjects/advaita'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'},
+      {name:'Vedadhara',url:'https://www.vedadhara.com/'},
+      {name:'Mahakatha',url:'https://mahakatha.com/'}
+    ]
+  },
+  {
+    id:'scripts', icon:'✍️', label:'Scripts', sublabel:'Devanāgarī',
+    color:'#4a1a6e', deva:'लिपि',
+    subtitle:'Brāhmī, Devanāgarī and the family of Sanskrit writing systems',
+    sections:[
+      { heading:'Devanāgarī — City of the Gods Script',
+        body:`<em>Devanāgarī</em> (देवनागरी) — literally 'the script of the city of the gods' — is the most widely used script for Sanskrit today, and also the script of Hindi, Marathi, Nepali and several other languages. It descended from the Brāhmī script through the Gupta script. Devanāgarī is an <em>abugida</em> — a writing system where each character represents a consonant with an inherent vowel (a), and additional vowel marks (<em>mātrās</em>) modify this inherent vowel. The script is written left to right, with a distinctive horizontal line (<em>śirorekha</em>) connecting the tops of characters in a word.\n\nDevanāgarī represents every phoneme of Sanskrit with a distinct character — unlike the Roman alphabet, where Sanskrit phonemes like retroflex ṭ, ḍ, ṇ, the aspirates kh, gh etc. require diacritics or digraphs. Conjunct consonants (<em>saṃyukta-vyañjana</em>) encode the phonological facts of Sanskrit morphology visually.` },
+      { heading:'Brāhmī — The Mother of Indian Scripts',
+        body:`Brāhmī — the script from which all Indian writing systems descend — first appears in the historical record in the 3rd century BCE, most famously in the rock edicts of Emperor Aśoka. The origin of Brāhmī is debated: some scholars derive it from Phoenician/Aramaic; others argue for an indigenous origin possibly related to Indus Valley script.\n\nFrom Brāhmī descended virtually every script used in South Asia and much of Southeast Asia: Devanāgarī, Bengali-Assamese, Gurmukhi, Gujarati, Odia, Telugu, Kannada, Tamil, Malayalam, Sinhala, Tibetan, Burmese, Khmer, Thai, Lao, Javanese, Balinese and more. This family of scripts — the <em>Brāhmī family</em> — represents one of the most geographically extensive script families in history, used today by over 1.5 billion people.` },
+      { heading:'Regional Sanskrit Scripts',
+        body:`Because Sanskrit was the pan-Indian scholarly language, it was written in virtually every regional script of India. Sanskrit manuscripts exist in <em>Grantha</em> (Tamil Nadu and Kerala), <em>Śāradā</em> (Kashmir), <em>Nāndīnāgarī</em> (South India), Maithilī, Bengali, Telugu, Kannada, Malayalam, Odia, Gujarati and Tibetan scripts.\n\nThe Śāradā script of Kashmir — used for Sanskrit manuscripts in the Kashmir Valley — preserves a treasure of philosophical texts not found elsewhere (particularly Shaiva texts — Abhinavagupta's <em>Tantrāloka</em>, the <em>Pratyabhijñā</em> texts). The Government of India's National Mission for Manuscripts has catalogued over 5.2 million manuscripts, of which perhaps 80% are in Sanskrit.` },
+      { heading:'Romanization Systems — IAST and ITRANS',
+        body:`For scholarly and digital use, Sanskrit is commonly transcribed into the Roman alphabet using diacritical marks. The most widely used scholarly system is <em>IAST</em> — International Alphabet of Sanskrit Transliteration — standardized in 1912. IAST uses a consistent one-to-one mapping: macrons for long vowels (ā, ī, ū), dot-under for retroflexes (ṭ, ḍ, ṇ, ṣ, ṛ), tilde-over for palatal nasal (ñ), acute for palatal sibilant (ś). IAST allows precise round-trip transcription — IAST text can be converted back to Devanāgarī without loss of information.\n\nFor digital input without diacritics, <em>ITRANS</em> (1989) uses uppercase letters and digraphs: aa for ā, ii for ī, T for ṭ etc. The Unicode standard provides dedicated code points for all Sanskrit/Devanāgarī characters, enabling native-script digital text in web, print and computing environments.` },
+      { heading:'Sanskrit in Epigraphy',
+        body:`Sanskrit inscriptions on stone (<em>śilāśāsana</em>) and copper plates (<em>tāmraśāsana</em>) constitute primary historical records of Indian civilization. The transition from Vedic to Classical Sanskrit can be traced in inscriptional evidence: early Aśokan inscriptions (3rd century BCE) are in Prakrit; the earliest Sanskrit inscriptions appear in the 1st century BCE; by the Gupta period (4th–6th century CE), elaborate Classical Sanskrit inscriptions are universal across the subcontinent.\n\nThe Allahabad Pillar inscription of Samudragupta (c. 350 CE) — composed by court poet Harisena — is a masterpiece of panegyric Sanskrit verse. These inscriptions are not merely historical documents but literary monuments — demonstrating that Classical Sanskrit was the prestige language of political power, commercial achievement, and cultural self-expression across the entire Indian world.` }
+    ],
+    refs:[
+      {name:'Sanskrit Documents',url:'https://sanskritdocuments.org/'},
+      {name:'Vedic Heritage India',url:'https://vedicheritage.gov.in/introduction/'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'}
+    ]
+  },
+  {
+    id:'phil_lang', icon:'💬', label:'Philosophy', sublabel:'Śabda-Brahman',
+    color:'#d4610a', deva:'शब्द',
+    subtitle:'Sphoṭa, Śabda-Brahman, Dhvani — Sanskrit theories of meaning',
+    sections:[
+      { heading:'Śabda-Brahman — The Absolute as Word',
+        body:`The most radical contribution of Sanskrit philosophical linguistics is the doctrine of <em>Śabda-Brahman</em> — the identification of ultimate reality (Brahman) with primordial Sound (Śabda). Found in the Ṛgveda's <em>Vāk Sūkta</em> (Hymn to the cosmic Word, Ṛgveda 10.125, where Vāk/Speech declares herself the source of all existence) and developed systematically by Bhartṛhari (5th century CE) in his <em>Vākyapadīya</em>, this teaching holds that language is not merely a human tool for communication but the very fabric of reality.\n\nBhartṛhari argues that <em>Śabda-Brahman</em> is undivided, eternal and self-luminous; that the apparent diversity of the world is a manifestation of this primordial Unity; and that liberation (mokṣa) consists in the recognition of the identity between the individual linguistic consciousness and the universal Śabda-Brahman — placing Sanskrit grammar at the very heart of the science of liberation.` },
+      { heading:'Sphoṭa Theory — The Unit of Linguistic Meaning',
+        body:`The <em>sphoṭa</em> theory addresses one of the deepest questions in the philosophy of language: what is the bearer of meaning? When we utter the word 'cow' (go), we produce a sequence of distinct phonemes in time. But the meaning 'cow' is grasped as a whole. The phonemes as physically produced sounds (<em>dhvani</em>) are impermanent and variable; yet the meaning grasped is constant. What is the constant, meaning-bearing unit?\n\nBhartṛhari's answer: the <em>sphoṭa</em> — an unitary, indivisible, eternal linguistic entity that is manifested (not produced) by the sequence of phonemes. The dhvanis (physical sounds) are like lamps that illuminate the sphoṭa without themselves being the meaning. Ultimately, the <em>vākya-sphoṭa</em> (sentence-sphoṭa) is the primary unit — anticipating, by 1500 years, Wittgenstein's context principle and Frege's argument that words have meaning only in the context of a sentence.` },
+      { heading:'Dhvani Theory — Resonance and Suggestion',
+        body:`The <em>Dhvani</em> ('resonance, echo, suggestion') theory — developed by Ānandavardhana in his <em>Dhvanyāloka</em> (9th century CE) and elaborated by Abhinavagupta — is the supreme achievement of Sanskrit aesthetic theory. Dhvani holds that the most excellent poetry operates through a third level of meaning beyond the literal (<em>abhidhā</em>) and the secondary (<em>lakṣaṇā</em>): the suggested meaning (<em>vyañjanā</em>), which resonates in the consciousness of the sensitive reader like the overtone of a musical note after the note itself has sounded.\n\nThe suggested meaning — dhvani — is not paraphrasable and not present in any single word. It arises in the interaction between the poem's words and the aesthetic sensibility (<em>sahṛdayatā</em>, 'same-heartedness') of the reader. Ānandavardhana's analysis reads like a combination of modern discourse analysis, pragmatics (Grice's maxims), and information theory.` },
+      { heading:'Mīmāṃsā Philosophy of Language',
+        body:`The Mīmāṃsā school developed the most radical theory of language in Sanskrit philosophy: the doctrine that the relationship between a Sanskrit word (<em>śabda</em>) and its meaning (<em>artha</em>) is eternal (<em>nitya</em>) and intrinsic — not conventional (as Western philosophy from Aristotle through Saussure assumes). The Sanskrit word 'go' (cow) is not a human-assigned label — it is the eternal sonic form of the essential nature of cow-ness.\n\nThis doctrine — developed by Kumārila Bhaṭṭa (7th century CE) and Prabhākara — has important consequences: if Sanskrit words are eternal, then the Vedas (in Sanskrit) are also eternal, not authored by any human or divine being (<em>apauruṣeya</em>), and therefore their authority is absolute and self-established. This makes the Mīmāṃsā theory of language simultaneously a theory of scriptural authority and an ontological claim about reality.` },
+      { heading:'Kashmir Śaivism and the Phonemic Matrix',
+        body:`Abhinavagupta (c. 975–1025 CE) in his <em>Parātriṃśikā-Vivaraṇa</em> and <em>Tantrāloka</em> develops a complete cosmological phonology: the 36 <em>tattvas</em> (cosmic principles) of Kashmir Śaivism are mapped onto the phonemic structure of Sanskrit, so that the emergence of the cosmos from Śiva-consciousness is described as an unfolding of the <em>varṇamālā</em> — from the silence before sound (<em>anuttara</em>, the phoneme A) through all 49 phonemes to the visarga (ḥ), which represents the outward expression of creativity.\n\nEvery Sanskrit phoneme is thus a condensed cosmological statement; every Sanskrit word is a micro-cosmos; the act of speaking Sanskrit is, in this framework, a participation in the ongoing creation of the universe by the Divine. This is the deepest meaning of <em>Nāda Brahman</em> — the platform's animating vision.` }
+    ],
+    refs:[
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'},
+      {name:'Vedadhara',url:'https://www.vedadhara.com/english-topics-mantra-shastra'},
+      {name:'Kamakoti.org',url:'https://www.kamakoti.org/'},
+      {name:'Open Sadhaka',url:'https://www.opensadhaka.com/'}
+    ]
+  },
+  {
+    id:'chandas', icon:'🎼', label:'Chandas', sublabel:'Metre & Prosody',
+    color:'#1a7a6e', deva:'छन्दस्',
+    subtitle:'The mathematics of Sanskrit verse — from Vedic hymns to kāvya',
+    sections:[
+      { heading:'Chandas — The Science of Metre',
+        body:`<em>Chandas</em> (metre/prosody) is one of the six Vedāṅgas and represents one of the most mathematically sophisticated aspects of Sanskrit literary tradition. Sanskrit prosody is quantitative — based on the duration of syllables (short/<em>laghu</em> = one mātrā, long/<em>guru</em> = two mātrās) rather than stress patterns. This allows an extraordinary diversity of metrical patterns and gives Sanskrit poetry its characteristic musical quality.\n\nPiṅgala's <em>Chandaḥśāstra</em> (c. 300–200 BCE) catalogued Sanskrit metres systematically, and in doing so discovered what is now known as Pascal's triangle (<em>meru-prastāra</em>), described what is in effect the binary number system — encoding syllable patterns as sequences of 0s and 1s — and found the Fibonacci sequence as a solution to a combinatorial question about Sanskrit metres, more than 1,500 years before Leibniz.` },
+      { heading:'Vedic Metres — The Sacred Rhythms',
+        body:`The most common Vedic metre is the <em>Gāyatrī</em> — a triplet of 8 syllables each (24 syllables total). The Gāyatrī metre is so sacred that the Gāyatrī mantra (Ṛgveda 3.62.10: <em>oṃ bhūr bhuvaḥ svaḥ / tat savitur vareṇyaṃ / bhargo devasya dhīmahi / dhiyo yo naḥ pracodayāt</em>) is composed in it, and the mantra's very power is considered inseparable from its metrical form.\n\nOther important Vedic metres: <em>Triṣṭubh</em> (4 lines × 11 syllables — preferred for heroic subjects — Indra hymns), <em>Jagatī</em> (4 × 12 syllables, for 'moving, active' subjects), <em>Anuṣṭubh</em> (4 × 8 syllables — later becomes the default Classical metre — ślokas of the Mahābhārata, Rāmāyaṇa, Purāṇas, Gītā). The Brāhmaṇas discuss at length the cosmic correspondences of each metre.` },
+      { heading:'Classical Metres — The Diversity of Kāvya',
+        body:`Classical Sanskrit kāvya employs hundreds of distinct metres. Major classical metres: <em>Indravajrā</em> and <em>Upendravajrā</em> (11 syllables — used in elevated philosophical verse); <em>Mandākrāntā</em> (17 syllables, used by Kālidāsa for his Meghadūta — the metre itself evokes the slow, majestic movement of clouds); <em>Śārdūlavikrīḍita</em> (19 syllables — 'tiger's sport' — used for powerful, dynamic subjects); <em>Sragdharā</em> (21 syllables — the longest standard classical metre, used for cosmic events or great battles).\n\nThe choice of metre in classical kāvya is never arbitrary — it is one of the primary tools of poetic meaning-making. The relationship between metre, subject, and emotional tone (rasa) is a sophisticated art detailed in Sanskrit prosody texts.` },
+      { heading:'Mnemonic Verses and Knowledge Transmission',
+        body:`The sūtra form — ultra-compressed aphoristic expression — and the śloka form were the primary vehicles for transmitting technical knowledge in Sanskrit. The reason: verse is far easier to memorize than prose. The entire Aṣṭādhyāyī of Pāṇini is in sūtras, memorizable in their entirety. Mathematical rules, medical prescriptions, astronomical calculations, philosophical arguments — all were versified in Sanskrit for transmission through memory.\n\nThis mnemonic tradition created a remarkable cultural phenomenon: a civilization whose most advanced technical knowledge was preserved and transmitted in oral verse form. The combination of the eight Vedic recitation patterns and metrical constraints created, in effect, a biological error-correcting code for cultural memory — allowing technical knowledge to be preserved with high fidelity across 50–100 generations without writing.` },
+      { heading:'Chandas and Music — The Bridge to Rāga',
+        body:`The quantitative metre of Sanskrit is the direct bridge between spoken Sanskrit and sung Sanskrit — between chandas and sāma. The Sāmaveda's melodies are settings of Ṛgvedic verses in which syllable durations specified by metre are mapped onto note durations specified by the musical pattern. This direct mapping between verbal rhythm (chandas) and musical rhythm (tāla) means that in Vedic chant, prosody and music are one discipline.\n\nThe tāla (rhythmic cycle) system of Indian classical music encodes exactly the same distinction between short (<em>laghu</em>) and long (<em>guru/druta/anudruta</em>) time units as Sanskrit prosody. A Carnatic violinist performing in Āditāla (8-beat cycle) is operating in the same binary duration framework as a Vedic priest reciting a Triṣṭubh verse. Sanskrit metre and Indian classical music share not just a historical origin but an ongoing structural identity.` }
+    ],
+    refs:[
+      {name:'Vedic Heritage India',url:'https://vedicheritage.gov.in/introduction/'},
+      {name:'Sanskrit Documents',url:'https://sanskritdocuments.org/'},
+      {name:'Shlokam.org',url:'https://shlokam.org/'}
+    ]
+  },
+  {
+    id:'global', icon:'🌍', label:'Global Spread', sublabel:'World Language',
+    color:'#c9963a', deva:'विश्व',
+    subtitle:'From Southeast Asia to the stars — Sanskrit as a world language',
+    sections:[
+      { heading:'Sanskrit in Southeast Asia',
+        body:`The spread of Indian civilization to Southeast Asia (largely complete by 1000 CE) was accompanied by Sanskrit as the language of prestige, religion, statecraft and scholarship. Unlike the spread of Latin (imposed through military conquest), the Indianization of Southeast Asia was largely voluntary — local rulers adopted Sanskrit because of its perceived power and prestige.\n\nThe magnificent Khmer inscriptions of Angkor (9th–14th centuries CE) are among the most accomplished Sanskrit literature produced outside India — employing complex metres, sophisticated alaṃkāra and precise grammatical forms. The Prambanan temples of Java (9th century CE) feature Sanskrit inscriptions and Rāmāyaṇa reliefs. Sanskrit loanwords permeate Malay, Javanese, Thai, Khmer, Tagalog and other Southeast Asian languages at the deepest level.` },
+      { heading:'Sanskrit in Central Asia, Tibet, and China',
+        body:`Buddhism's expansion from India into Central Asia, Tibet and China carried Sanskrit texts and vocabulary with it. The vast Buddhist canonical literature was originally composed in Sanskrit and translated into Chinese, Tibetan, Mongolian, Korean and Japanese. The Chinese transliteration of Sanskrit Buddhist terms deeply influenced Chinese and Japanese vocabulary (<em>chán</em> from <em>dhyāna</em>, giving Japanese <em>zen</em>; <em>pútísā</em> from <em>bodhisattva</em>).\n\nTibetan Buddhism preserves an enormous Sanskrit literature in Tibetan translation — the Kangyur and Tengyur together run to over 300 volumes. The Tibetan translation tradition is crucial for Sanskrit textual recovery — when an original Sanskrit Buddhist text is lost, the Tibetan translation often allows reconstruction of the original.` },
+      { heading:'Sanskrit and European Discovery — Comparative Linguistics',
+        body:`Sir William Jones's famous 1786 address to the Asiatic Society of Bengal — in which he declared that Sanskrit's relationship to Greek and Latin and Gothic was "too strong to have been produced by accident" and proposed a common ancestor — founded comparative linguistics as a scientific discipline. For the next century, European scholars used Sanskrit as a key data source in reconstructing Proto-Indo-European.\n\nGrimm's Law, Verner's Law, the laryngeal theory — all were developed in dialogue with Sanskrit evidence. The Romantic movement's fascination with Sanskrit (Goethe, Schiller, Schlegel, Schopenhauer, Hegel) additionally made Sanskrit philosophy a transformative intellectual force in 19th-century European thought.` },
+      { heading:'Sanskrit Loanwords in World Languages',
+        body:`The reach of Sanskrit vocabulary extends far beyond the languages of India. Through Buddhism: Chinese has hundreds of Sanskrit loanwords; Japanese has a layer of Sanskrit-origin Buddhist vocabulary (<em>bonnu</em> from <em>kleśa</em>; <em>nirvāna</em> as <em>nehan</em>). Through maritime trade: Indonesian/Malay has thousands of Sanskrit loanwords — <em>bahasa</em> (bhāṣā, language), <em>surga</em> (svarga, heaven), <em>raja</em> (rāja, king).\n\nEven English has Sanskrit cognates: Sanskrit <em>nava</em> (9) → English <em>nine</em>; Sanskrit <em>daśa</em> (10) → English <em>ten</em>; Sanskrit <em>mātar</em> (mother) → English <em>mother</em>; Sanskrit <em>deva</em> → English <em>divine</em>. The relationship between Sanskrit and Avestan (Zoroastrian) is so close that they are nearly mutually intelligible — the theological split between <em>deva</em> (Sanskrit god) and <em>daeva</em> (Avestan demon) reflecting the Indo-Iranian bifurcation.` },
+      { heading:'Sanskrit as a Living World Language Today',
+        body:`Sanskrit is not a dead language — it is a living language used daily by scholars, priests, teachers, poets and spiritual practitioners. The town of Mattur in Karnataka (India) conducts daily life entirely in Sanskrit. <em>Sudharma</em> (published daily in Mysore since 1970) is the world's only daily Sanskrit newspaper. All-India Radio broadcasts a Sanskrit news bulletin.\n\nAt the global level: computer scientists re-examine Sanskrit's grammatical precision for AI applications. Researchers in consciousness studies engage with Sanskrit philosophical texts (Yoga Sūtras, Upaniṣads, Tantras) for frameworks beyond current neuroscience. UNESCO has included Vedic chanting in its Representative List of the Intangible Cultural Heritage of Humanity. Sanskrit is alive — not despite time's passage but because of the depth of what it carries.` }
+    ],
+    refs:[
+      {name:'Vedic Heritage India',url:'https://vedicheritage.gov.in/introduction/'},
+      {name:'Hindu Media Wiki',url:'https://hindumediawiki.com/story.php?id=821'},
+      {name:'Open Library',url:'https://openlibrary.org/subjects/advaita'}
+    ]
+  },
+  {
+    id:'manuscripts', icon:'📜', label:'Manuscripts', sublabel:'Transmission',
+    color:'#8b1a2a', deva:'हस्तलेख',
+    subtitle:'How Sanskrit knowledge survived — palm leaf to digital archive',
+    sections:[
+      { heading:'The Manuscript Tradition of India',
+        body:`India possesses the largest manuscript heritage of any civilization on earth. The Government of India's National Mission for Manuscripts has surveyed over <strong>5.2 million manuscripts</strong> — and this is certainly an undercount, as many private collections remain uncatalogued. The vast majority are in Sanskrit, in scripts ranging from Devanāgarī to Grantha to Śāradā to Telugu to Kannada. The subjects span the entire range of human inquiry: literature, philosophy, grammar, mathematics, astronomy, medicine, music, dance, architecture, sculpture, yoga, tantra, ritual, law, economics, metallurgy, botany, zoology, military science, political theory, and more.\n\nThe physical materials reflect geographic and temporal diversity. <em>Palm leaf</em> (tāḍapatrī) was dominant in South India and Southeast Asia. <em>Birch bark</em> (bhūrjapattra) was used in North India and Kashmir — the Bakhshali manuscript (containing the earliest known use of a mathematical zero as a digit) is on birch bark, carbon-dated to the 3rd–4th century CE.` },
+      { heading:'Oral Transmission — The Vedic Recitation Tradition',
+        body:`Paradoxically, the most important Sanskrit texts — the Vedas — were NOT primarily transmitted through manuscripts but through the living oral tradition, which in many ways is more reliable. The Vedic oral transmission system (<em>pāṭha-paramparā</em>) employs eight modes of recitation: <em>Saṃhitāpāṭha</em> (continuous recitation), <em>Padapāṭha</em> (each word separately), <em>Kramapāṭha</em> (overlapping pairs), <em>Jaṭāpāṭha</em> (words recited forwards and backwards), <em>Ghanapāṭha</em> (the most complex pattern, with long overlapping forwards-backwards sequences).\n\nThe complexity of Ghanapāṭha makes any error immediately audible. UNESCO recognized this system in 2008 by inscribing Vedic chanting on the Representative List of Intangible Cultural Heritage of Humanity. The tradition of unbroken Vedic oral transmission — now at least 3,500 years old — is one of the most remarkable achievements of human cultural preservation in history.` },
+      { heading:'Colonial Period Scholarship and Sanskrit Recovery',
+        body:`The colonial period (roughly 1750–1947) produced a paradox for Sanskrit: European scholars developed Indology into a systematic discipline, producing critical editions, Sanskrit dictionaries (the Monier-Williams Sanskrit-English Dictionary, 1872, remains a standard reference) and translations — while simultaneously undermining traditional Sanskrit education through policies like Macaulay's Minute on Indian Education (1835).\n\nNevertheless, this period saw major Sanskrit discoveries. The discovery of the <em>Arthaśāstra</em> of Kauṭilya (1905) — a complete treatise on statecraft, military strategy and economics — was a landmark. The discovery of Bhāsa's thirteen plays (1912) transformed understanding of Sanskrit drama. The Bakhshali manuscript's discovery revealed the early history of Indian mathematics.` },
+      { heading:'Digital Sanskrit — The Living Archive',
+        body:`The digitization of Sanskrit manuscripts and the development of computational tools are among the most exciting developments in contemporary humanities scholarship. Major digital Sanskrit initiatives: <em>GRETIL</em> (Göttingen Register of Electronic Texts in Indian Languages) — thousands of Sanskrit texts in machine-readable format; the <em>Digital Corpus of Sanskrit (DCS)</em> — a fully parsed, tagged corpus of Sanskrit texts; <em>Sanskrit Documents</em> (sanskritdocuments.org) — the most comprehensive free online repository.\n\nSanskritOCR tools (using machine learning trained on Devanāgarī manuscripts) are enabling automated transcription. The Consulate of Sanskrit (Rashtriya Sanskrit Sansthan) and the Sanskrit Education Society support digital Sanskrit education. Researchers in AI and quantum computing are exploring Sanskrit's formal precision as potential foundations for next-generation natural language processing systems.` },
+      { heading:'Colophons and the Names of Scribes',
+        body:`Indian manuscripts typically end with a <em>colophon</em> (<em>puṣpikā</em>, literally 'flower') — a closing inscription in which the scribe identifies himself, gives the date of copying, and often invokes blessings. These colophons are crucial historical documents allowing manuscripts to be dated, texts to be attributed, and scribal traditions to be traced.\n\nMajor manuscript-producing centres included Varanasi (the great university city), Navadvipa (Bengal), Kanchipuram and Kumbakonam (Tamil Nadu), Mysore and Dharwad (Karnataka), Thiruvananthapuram (Kerala), and the great monastic centres (<em>maṭhas</em>) established by Adi Shankaracharya. Many manuscripts were produced in temple scriptoria, where copying sacred texts was itself considered a form of worship.` }
+    ],
+    refs:[
+      {name:'Sanskrit Documents',url:'https://sanskritdocuments.org/'},
+      {name:'Vedic Heritage India',url:'https://vedicheritage.gov.in/introduction/'},
+      {name:'Archive.org',url:'https://archive.org/details/CompleteWorksOfSriSankaracharyaIn20Volumes1910Edition/'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'}
+    ]
+  },
+  {
+    id:'prakrits', icon:'🌿', label:'Prakrits', sublabel:'Descendants',
+    color:'#4a1a6e', deva:'प्राकृत',
+    subtitle:'Sanskrit\'s daughter languages — Pali, Prakrits, Apabhraṃśa, modern Indic',
+    sections:[
+      { heading:'The Prakrit Languages',
+        body:`<em>Prakrit</em> (Prākṛta — 'natural, original') is the collective name for the Middle Indo-Aryan dialects that descended from Vedic Sanskrit. The current scholarly consensus is that Prakrits represent the natural spoken evolution of Vedic Sanskrit over time, while Classical Sanskrit represents the deliberately preserved and formalized register. Both coexisted for centuries — Classical Sanskrit as the prestige written form, various Prakrits as the spoken vernaculars.\n\nMajor Prakrits: <em>Pali</em> (language of Theravāda Buddhist scripture), <em>Ardhamāgadhī</em> (language of Jain canonical texts), <em>Mahārāṣṭrī</em> (considered the most prestigious literary Prakrit — used for lyric poetry, especially Hāla's Sattasaī), <em>Śaurasenī</em> (used for prose sections spoken by women and servants in Sanskrit drama), <em>Māgadhī</em> (associated with the Magadha region), and <em>Apabhraṃśa</em> ('that which has fallen away' — the transitional stage into modern Indic languages).` },
+      { heading:'Pali — The Language of the Buddha',
+        body:`Pali — the liturgical and scholastic language of Theravāda Buddhism — is closely related to Sanskrit but represents an independent development from the Proto-Indo-Aryan base. The Pali Tipiṭaka — the complete Theravāda Buddhist canon — is one of the longest texts in human history (approximately 11 times the length of the Bible) and contains sophisticated analyses of consciousness, phenomenology, ethics, cosmology and meditation practice.\n\nThe Pali <em>Abhidhamma</em> — particularly Buddhaghosa's <em>Visuddhimagga</em> (5th century CE) — is a masterwork of psychological analysis comparable to any philosophical achievement in Sanskrit. Pali is still actively studied and used in Sri Lanka, Myanmar, Thailand, Cambodia, Laos and among Theravāda communities worldwide.` },
+      { heading:'Apabhraṃśa — The Bridge to Modern Languages',
+        body:`<em>Apabhraṃśa</em> (literally 'that which has fallen away' from Sanskrit standard) represents the transitional linguistic stage between Middle Indo-Aryan (Prakrits) and New Indo-Aryan (modern languages). It developed from approximately 500–1200 CE, with regional variants corresponding to the regions that would become modern Indic languages.\n\nSignificant Apabhraṃśa literature exists, particularly the <em>Dohā</em> literature — the spontaneous songs and aphorisms of the Siddha and Nātha yogis (8th–12th centuries) composed in Apabhraṃśa dialects that are the direct ancestors of modern Hindi, Odia, Bengali and Marathi. The Dohā tradition — Saraha, Kānha, Tillopā — contains some of the most beautiful mystical poetry in any language, expressing Vajrayāna Buddhist and Nātha yoga insights in the living vernacular of their time.` },
+      { heading:'Modern Indic Languages — Sanskrit\'s Living Children',
+        body:`The modern Indic languages — Hindi, Bengali, Marathi, Gujarati, Punjabi, Odia, Assamese, Nepali, Sinhala — are the living descendants of Sanskrit through the Prakrit and Apabhraṃśa stages. Hindi (particularly its literary Shuddh Hindi register) uses Sanskrit vocabulary extensively. Bengali has an elaborate system of <em>tatsama</em> (Sanskrit words adopted unchanged), <em>tadbhava</em> (Sanskrit words evolved through Prakrit), and <em>deshi</em> (native) vocabulary.\n\nThe Dravidian languages — Tamil, Telugu, Kannada, Malayalam — are not descended from Sanskrit, but have absorbed vast Sanskrit vocabularies. Telugu has the largest percentage of Sanskrit-derived vocabulary (up to 60% in literary registers) of any Dravidian language. Tamil — the oldest Dravidian language, with a literary tradition going back 2,000+ years — maintained strict Tamil-purism movements while simultaneously absorbing thousands of Sanskrit loanwords.` },
+      { heading:'Sanskrit and the European Language Family',
+        body:`The demonstration that Sanskrit, Greek, Latin, Gothic, Old Persian, Lithuanian, Slavic and Celtic languages all descend from a common Proto-Indo-European ancestor was the founding act of modern linguistics. Sanskrit's importance to this project cannot be overstated: its grammatical completeness, phonological conservatism and rich Vedic literature made Sanskrit the essential pivot around which the reconstruction of PIE was organized.\n\nSpecific Sanskrit-PIE correspondences: Sanskrit <em>putra</em> (son) ↔ Avestan <em>puθra</em>; Sanskrit <em>śvan</em> (dog) ↔ Latin <em>canis</em>, Greek <em>kuōn</em>, PIE *<em>kwon</em>; Sanskrit <em>aśva</em> (horse) ↔ Latin <em>equus</em>, Greek <em>hippos</em>, PIE *<em>h₁eḱwos</em>; Sanskrit <em>arya</em> (noble) ↔ Avestan <em>airya</em> ↔ the name 'Iran' (from Airyana Vaejah) — showing the common cultural identity of the Indo-Iranian branch before its split approximately 3,500–4,000 years ago.` }
+    ],
+    refs:[
+      {name:'Vedic Heritage India',url:'https://vedicheritage.gov.in/introduction/'},
+      {name:'Hindupedia',url:'https://hindupedia.com/en/Veda'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'}
+    ]
+  },
+  {
+    id:'digital', icon:'💻', label:'Digital & AI', sublabel:'Future Sanskrit',
+    color:'#1a7a6e', deva:'संगणक',
+    subtitle:'Pāṇini meets computation — Sanskrit in the age of artificial intelligence',
+    sections:[
+      { heading:'Sanskrit and Formal Language Theory',
+        body:`The structural parallels between Pāṇini's Aṣṭādhyāyī and modern formal language theory (the mathematical foundation of computer science) have attracted serious scholarly attention since at least the 1970s. Pāṇini's grammar is a context-sensitive grammar in the Chomsky hierarchy — it generates exactly the set of well-formed Sanskrit sentences, using a finite set of rules that can be precisely stated and mechanically applied. This makes Sanskrit the only natural language whose complete grammar has been (almost certainly) fully formalized — in a notation that predates the computer by 2,400 years.\n\nThe Backus-Naur Form (BNF) — standard notation for defining the syntax of programming languages — is structurally identical to Pāṇini's sūtra format. Knuth's attribution of the concept of 'context-free grammar' to Pāṇini, and Staal's (1965) formal analysis of Pāṇini's grammar using mathematical logic, established these connections rigorously.` },
+      { heading:'Sanskrit NLP — Natural Language Processing',
+        body:`Sanskrit NLP is an active research area with unique challenges and unique opportunities. The challenges: Sanskrit's extremely free word order, its complex sandhi rules (word boundaries often hidden in text), and the enormous morphological richness (a single Sanskrit root can generate thousands of word forms) make Sanskrit far more complex for NLP than English.\n\nThe opportunities: Sanskrit's complete formal grammar (Pāṇini) means that morphological analysis is, in principle, completely solvable. The <em>Sanskrit Heritage Site</em> (maintained by Gérard Huet, French National Institute for Computer Science) provides an interactive Sanskrit reader performing sandhi splitting and morphological analysis in real time. Google Translate now supports Sanskrit. Microsoft has developed Sanskrit voice recognition. The University of Hyderabad's Sanskrit computational group has produced significant work on Pāṇinian computational grammar implementation.` },
+      { heading:'Sanskrit as an AI Language',
+        body:`Rick Briggs's 1985 NASA Technical Report 'Knowledge Representation in Sanskrit and Artificial Intelligence' made a remarkable claim: Sanskrit, due to its rigorously unambiguous grammatical structure, is the only natural language suitable for direct use in AI knowledge representation without requiring the intermediate step of converting natural language to formal notation. In most natural languages, the conversion from ambiguous natural language to unambiguous logical notation loses information. In Sanskrit, the combination of case endings, compound formation rules, and the <em>Kāraka</em> theory provides sufficient structure for direct logical interpretation.\n\nModern large language models (LLMs) trained on Sanskrit corpus data show remarkable performance because Sanskrit's high morphological regularity allows each token to carry more grammatical information than equivalent tokens in morphologically poorer languages.` },
+      { heading:'Sanskrit in Music Technology',
+        body:`The digitization of Sanskrit music theory texts — particularly the ancient treatises (<em>Nāṭya Śāstra, Dattilam, Bṛhaddeśī, Saṃgīta Ratnākara, Rāga Vibodha</em>) — has enabled new computational musicology research. The formal description of rāgas in Sanskrit texts (āroha, avaroha, vādi-saṃvādi, characteristic phrases, time and season associations) provides a structured semantic framework for rāga classification that researchers are using in automatic rāga recognition systems and AI composition.\n\nProjects like the CompMusic initiative have built large datasets of Carnatic and Hindustani music aligned with Sanskrit music theory descriptions. Sanskrit mantra analysis — studying the specific acoustic properties of Sanskrit bīja mantras — is an emerging field at the intersection of acoustics, neuroscience and Sanskrit phonology.` },
+      { heading:'Future of Sanskrit in the Digital Age',
+        body:`Sanskrit's future in the digital age is paradoxically one of its most vibrant periods. Several converging trends point toward a Sanskrit renaissance: the explosion of digital Sanskrit resources making previously inaccessible texts available globally; the development of Sanskrit NLP tools enabling computational analysis of the vast manuscript heritage; the growing global interest in Indian philosophy, yoga, Ayurveda and meditation creating demand for accurate Sanskrit-sourced information; and the recognition by AI researchers of Sanskrit's formal precision.\n\nIndia's National Education Policy 2020 emphasizes Sanskrit education at all levels; the AICTE has introduced Sanskrit computational linguistics in computer science curricula. The vision of NadaBrahman — Sanskrit as the backbone of a World Knowledge Platform — is thus both historically grounded and futuristically oriented. Sanskrit's formal properties make it uniquely suited to the age of AI.` }
+    ],
+    refs:[
+      {name:'Sanskrit Documents',url:'https://sanskritdocuments.org/'},
+      {name:'Open Sadhaka',url:'https://www.opensadhaka.com/'},
+      {name:'Vedyog',url:'https://vedyog.net/'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'}
+    ]
+  },
+  {
+    id:'morphology', icon:'🔬', label:'Morphology', sublabel:'Word Formation',
+    color:'#c9963a', deva:'व्याकरण',
+    subtitle:'Sanskrit\'s infinite expressive power through systematic derivation',
+    sections:[
+      { heading:'The Root System — Dhātu',
+        body:`Sanskrit morphology is built on a foundation of approximately 2,000 verbal roots (<em>dhātus</em>) — irreducible semantic primitives from which all Sanskrit words can be systematically generated. The <em>Dhātupāṭha</em> — the list of Sanskrit verbal roots — is one of the appendices to Pāṇini's Aṣṭādhyāyī, giving each root with its meaning, its class (<em>gaṇa</em>), and its activation marker. From each root, through the systematic application of primary suffixes (<em>kṛt pratyayas</em>), the root can become a noun, adjective, or infinitive; through secondary suffixes (<em>taddhita pratyayas</em>), existing nouns can spawn new nouns; through compound formation (<em>samāsa</em>), existing words can be combined to create meanings of theoretically unlimited complexity.\n\nThe root √<em>bhū</em> (to be, become) generates: <em>bhava</em> (existence), <em>bhavana</em> (house), <em>bhūta</em> (element/ghost), <em>bhuvana</em> (world), <em>vibhu</em> (pervading — epithet of Vishnu), <em>prabhava</em> (arising), <em>sambhava</em> (birth), <em>bhūmi</em> (earth), <em>bhāva</em> (emotional state — used in Rasa theory).` },
+      { heading:'Samāsa — Compound Formation',
+        body:`Sanskrit compound words (<em>samāsa</em>) are one of its most celebrated features. Six types of compound are recognized: <em>Dvandva</em> (copulative, 'x and y': <em>rāma-kṛṣṇau</em> 'Rāma and Kṛṣṇa'); <em>Tatpuruṣa</em> (determinative: <em>rājapuruṣa</em> 'king's man', <em>devālaya</em> 'temple'); <em>Karmadharaya</em> (where both members describe the same entity: <em>mahāpuruṣa</em> 'great man'); <em>Dvigu</em> (numeral compound: <em>trilokyam</em> 'the three worlds'); <em>Bahuvrīhi</em> (exocentric, describing something else: <em>mahābāhu</em> 'great-armed one' = an epithet of Arjuna); <em>Avyayibhāva</em> (adverbial, where the first member is indeclinable).\n\nThe practical consequence: Sanskrit can build arbitrarily long compound words. One celebrated extreme from Māgha's Śiśupālavadha — a compound of over 40 syllables — demonstrates that Sanskrit compound formation has no theoretical upper limit.` },
+      { heading:'Cases — The Eight Windows of Relation',
+        body:`Sanskrit's eight grammatical cases (<em>vibhaktis</em>) allow expression of grammatical relationships without prepositions — the word endings carry all relational information. The eight cases: <em>Prathamā</em> (nominative — subject), <em>Dvitīyā</em> (accusative — direct object), <em>Tṛtīyā</em> (instrumental — agent, means: <em>rāmeṇa</em>, 'by/with Rāma'), <em>Caturthī</em> (dative — recipient: <em>rāmāya</em>, 'for Rāma'), <em>Pañcamī</em> (ablative — source: <em>rāmāt</em>, 'from Rāma'), <em>Ṣaṣṭhī</em> (genitive — possession: <em>rāmasya</em>, 'Rāma's'), <em>Saptamī</em> (locative — location: <em>rāme</em>, 'in Rāma'), <em>Sambodhana</em> (vocative — address: <em>he rāma!</em>).\n\nThe <em>Kāraka</em> system — Pāṇini's deep semantic case analysis — describes the underlying semantic roles that can be expressed by various surface cases and prepositions. The six kārakas anticipate modern semantic role labelling and are directly implemented in Sanskrit dependency parsing systems.` },
+      { heading:'Verbal System — Tense, Aspect, Mood',
+        body:`Sanskrit's verbal system is among the richest of any language — a single root can generate hundreds of distinct verb forms encoding tense (past, present, future), aspect, mood (indicative, optative/subjunctive, imperative, conditional), voice (active/<em>parasmaipada</em>, middle/<em>ātmanepada</em>, passive), person (1st, 2nd, 3rd) and number (singular, dual, plural).\n\nKey verb forms: <em>Laṭ</em> (present: <em>gacchati</em> 'he goes'); <em>Laṅ</em> (past imperfect: <em>agacchat</em> 'he was going'); <em>Lṛṭ</em> (future: <em>gamiṣyati</em> 'he will go'); <em>Liṭ</em> (perfect — for past events not witnessed: <em>jagāma</em> 'he went [reportedly]'); <em>Luṅ</em> (aorist — just-past: <em>agamat</em> 'he went [just now]'); <em>Vidhiliṅ</em> (optative — wish, possibility: <em>gacchet</em> 'he may/should go'); <em>Loṭ</em> (imperative: <em>gaccha</em> 'go!'). The distinction between Laṅ and Luṅ reflects an evidential distinction — the perfect/Liṭ is for events the speaker did not personally witness — a grammaticalized evidentiality system.` },
+      { heading:'Numerical Precision and Sanskrit Number Words',
+        body:`Sanskrit number words reveal both its Indo-European heritage and its indigenous mathematical development. The basic numerals: <em>eka</em> (1), <em>dvi</em> (2), <em>tri</em> (3), <em>catur</em> (4), <em>pañca</em> (5), <em>ṣaṣ</em> (6), <em>sapta</em> (7), <em>aṣṭa</em> (8), <em>nava</em> (9), <em>daśa</em> (10) — directly cognate with their counterparts in Latin, Greek and other IE languages, confirming PIE *oinos, *dwo, *treyes etc. as the source of all these numerals.\n\nSanskrit had distinct words for numbers up to at least 10⁶⁰ with a complete terminological system. This reflects the needs of Vedic astronomical calculation — the Vedic texts deal with astronomical cycles of millions of years (<em>Mahāyugas, Kalpas</em>). The place-value decimal system Sanskrit mathematicians developed — with zero as a fully operational digit by the 7th century CE — became the system that all modern mathematics uses, transmitted through Arabic intermediaries.` }
+    ],
+    refs:[
+      {name:'Sanskrit Documents',url:'https://sanskritdocuments.org/'},
+      {name:'Veda Purana',url:'https://vedapurana.org/'},
+      {name:'Open Sadhaka',url:'https://www.opensadhaka.com/'}
+    ]
+  },
+  {
+    id:'aesthetics', icon:'🌺', label:'Aesthetics', sublabel:'Alaṃkāra',
+    color:'#8b1a2a', deva:'अलंकार',
+    subtitle:'Rasa, Dhvani, and the science of poetic beauty in Sanskrit',
+    sections:[
+      { heading:'Alaṃkāraśāstra — The Science of Ornamentation',
+        body:`<em>Alaṃkāraśāstra</em> ('science of alaṃkāra' — ornamentation, figure of speech) is the Sanskrit tradition of systematic literary criticism and aesthetic theory. It is one of the most comprehensive traditions of literary theory in the world — comparable in ambition to Aristotle's Poetics and in sophistication far exceeding it. The tradition developed from the Nāṭya Śāstra through a succession of brilliant theorists spanning 1,500 years.\n\nThe primary question: what makes great poetry great? Different schools gave different answers: the <em>Alaṃkāra school</em> (Bhāmaha, Daṇḍin — 6th–9th centuries CE) held that figures of speech are the essence of poetry; the <em>Rīti school</em> (Vāmana, c. 800 CE) held that style is the soul of poetry; the <em>Dhvani school</em> of Ānandavardhana (9th century CE) held that suggested meaning (<em>dhvani</em>) is the soul of poetry. Each school is not merely a critical theory but a philosophy of language and consciousness.` },
+      { heading:'Rasa Theory — The Nine Emotional Essences',
+        body:`The Rasa theory — first systematized in the Nāṭya Śāstra of Bharata Muni — is the most influential aesthetic theory in Indian history and the organizing principle of classical music, dance, poetry, drama, sculpture and painting. <em>Rasa</em> (literally 'taste, essence, juice') refers to the aesthetic emotion experienced by the sensitive spectator (<em>sahṛdaya</em>) in response to art — a refined, universalized form of emotion that is both intensely felt and blissfully detached from personal suffering.\n\nBharata identifies eight rasas: <em>Śṛṅgāra</em> (erotic love — the king of all rasas), <em>Hāsya</em> (comic), <em>Karuṇā</em> (pathos), <em>Raudra</em> (fury), <em>Vīra</em> (heroism), <em>Bhayānaka</em> (terror), <em>Bībhatsa</em> (disgust), <em>Adbhuta</em> (wonder). Abhinavagupta added a ninth: <em>Śānta</em> (peace/equanimity — the quiet ocean from which all emotional waves arise and into which they subside — the highest rasa).` },
+      { heading:'Abhinavagupta — The Summit of Sanskrit Aesthetics',
+        body:`Abhinavagupta (c. 975–1025 CE, Kashmir) stands as perhaps the single greatest intellectual figure in Sanskrit thought — a philosopher, aesthetician, tantrika, musician, poet and mystic of extraordinary range and depth. His works include the <em>Tantrāloka</em> (the complete encyclopaedia of Kashmir Śaivism in 37 chapters), the <em>Abhinavabhāratī</em> (the definitive commentary on Bharata's Nāṭya Śāstra), and the <em>Locana</em> (commentary on Ānandavardhana's Dhvanyāloka).\n\nAbhinavagupta's key contribution to Rasa theory: the concept of <em>Sādhāraṇīkaraṇa</em> — 'universalization' or 'depersonalization'. When a spectator experiences the rasa of Karuṇā in theatre, the emotion has been 'universalized' — stripped of its personal ego-reference — and experienced as a pure quality of consciousness. This experience of rasa is, Abhinavagupta argues, structurally identical to the experience of liberation (mokṣa) — a momentary dissolution of the boundary between self and world in a flash of pure blissful awareness (<em>camatkāra</em>). Art, for Abhinavagupta, is a technology of liberation.` },
+      { heading:'Alaṃkāras — The Figures of Sanskrit Poetry',
+        body:`Sanskrit rhetoric catalogued over 100 distinct figures of speech (<em>alaṃkāras</em>), each precisely defined and illustrated with examples from the best Sanskrit poetry. Major figures: <em>Upamā</em> (simile — explicit comparison using 'like' or 'as'); <em>Rūpaka</em> (metaphor — direct identification: <em>ratnamayī vāṇī</em>, 'speech that is made of jewels'); <em>Utprekṣā</em> (fancy/imaginative comparison); <em>Atiśayokti</em> (hyperbole); <em>Yamaka</em> (word repetition — same sound-sequence, different meaning); <em>Ślesa</em> (punning — multiple simultaneous meanings); <em>Virodha</em> (apparent contradiction); <em>Svabhāvokti</em> (natural description without ornamentation — itself considered a figure, the ultimate simplicity that achieves depth through precision).\n\nThe theory of Dhvani argues that the finest poetry transcends even these figures — that the most effective poetic expression points like a finger to a moon of suggested meaning that illuminates consciousness beyond words.` },
+      { heading:'Nāyaka-Nāyikā Bheda — The Classification of Lovers',
+        body:`One of the most distinctive achievements of Sanskrit aesthetic theory is the exhaustive classification of the hero (<em>nāyaka</em>) and heroine (<em>nāyikā</em>) in literature and drama. Nāyikās are classified by age (<em>mugdhā</em>/young and innocent, <em>madhyā</em>/mature, <em>pragalbhā</em>/bold), by situation (<em>svīyā</em>/one's own wife, <em>parakīyā</em>/another's wife, <em>sāmānyā</em>/courtesan), and by their emotional state in relation to the hero — the eight states (<em>aṣṭanāyikā</em>): <em>abhisārikā</em> (she who goes to meet her lover), <em>vāsaka-sajjā</em> (she who prepares expecting the lover), <em>utkanthitā</em> (she who longs for the absent lover), <em>vipralabdhā</em> (she who has been deceived), <em>khaṇḍitā</em> (she angry at infidelity), <em>kalahāntaritā</em> (she separated after a quarrel), <em>prosita-bhartṛkā</em> (she whose husband is abroad), <em>svādhīna-bhartṛkā</em> (she whose husband is devoted).\n\nEach of these eight categories became canonical in classical painting, sculpture, poetry and dance — depicted in temple sculpture, Rājput miniature paintings, Bharatanāṭyam, and the classical poetry of all regional traditions.` }
+    ],
+    refs:[
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'},
+      {name:'Exotica India Art',url:'https://www.exoticindiaart.com/article/the-108-poses-of-shiva-tandava-in-natya-shastra'},
+      {name:'Open Library',url:'https://openlibrary.org/subjects/advaita'},
+      {name:'Mahakatha',url:'https://mahakatha.com/'}
+    ]
+  },
+  {
+    id:'yoga_l1', icon:'🧘', label:'Sanskrit & Yoga', sublabel:'Practice',
+    color:'#d4610a', deva:'योग',
+    subtitle:'The living laboratory — how Sanskrit shapes yogic consciousness',
+    sections:[
+      { heading:'The Yoga Sūtras — Sanskrit as a Technology of Mind',
+        body:`Patañjali's Yoga Sūtras — 196 aphorisms in Classical Sanskrit — represent the most concise and complete systematic psychology of meditation in any tradition. Written in the same sūtra format as Pāṇini's grammar, the Yoga Sūtras define yoga as <em>citta-vṛtti-nirodhaḥ</em> — 'the cessation of the modifications of the mind-stuff' — and then systematically describe: the nature of mind and its modifications; the obstacles to yoga (<em>kleśas</em>: avidyā/ignorance, asmitā/egoism, rāga/desire, dveṣa/aversion, abhiniveśa/clinging to life); the eight limbs of practice (<em>aṣṭāṅga yoga</em>: yama, niyama, āsana, prāṇāyāma, pratyāhāra, dhāraṇā, dhyāna, samādhi); and the transformations of consciousness through practice.\n\nThe Sanskrit technical vocabulary of the Yoga Sūtras is untranslatable in any single word — each term carries a precise phenomenological meaning that requires multiple English words to approximate. This precision — the gift of Sanskrit's morphological richness — is what makes the Yoga Sūtras an inexhaustible guide for practitioners.` },
+      { heading:'Mantra and the Transformation of Consciousness',
+        body:`The Sanskrit mantra tradition is not merely a religious or devotional practice but a rigorous practical science of consciousness transformation through sound. A mantra (<em>man</em> = mind + <em>tra</em> = instrument of liberation) is defined as a sonic form of a divine principle whose repetition (<em>japa</em>) restructures the practitioner's consciousness in the direction of that principle.\n\nModern neuroscience has begun to provide empirical support for these traditional claims. Studies using EEG, fMRI and cortisol measurement show that sustained Sanskrit mantra chanting induces measurable changes in brain wave patterns (increased alpha and theta activity), reduces cortisol levels (the primary stress hormone), improves memory and cognitive performance, and increases serotonin production. The specific acoustic properties of Sanskrit — the precise articulation required by Pāṇini's phonological rules, the resonance created in specific chambers of the skull and chest — appear to be key mechanisms.` },
+      { heading:'Āsana Names and Their Sanskrit Meaning',
+        body:`The classical āsanas (postures) of Haṭha Yoga are named in Sanskrit, and their Sanskrit names encode both the purpose and the quality of each posture. Understanding the Sanskrit names transforms āsana practice from physical exercise into contemplative practice. <em>Tāḍāsana</em> (Mountain Pose): <em>tāḍa</em> = mountain — the posture of ground, stability, immovability. <em>Vṛkṣāsana</em> (Tree Pose): <em>vṛkṣa</em> = tree — rootedness below, expansiveness above, one-pointed balance.\n\n<em>Śavāsana</em> (Corpse Pose): <em>śava</em> = corpse — the complete release of every muscular holding into absolute stillness. Far from being a casual rest, Śavāsana is the most difficult āsana — the total dissolution of the doer into pure being, a rehearsal of death and the recognition of what persists through death. <em>Sukhāsana</em>: <em>sukha</em> = happiness/ease (literally 'good space' — <em>su</em> = good, <em>kha</em> = space/sky — originally referring to a well-centered wheel hub), revealing the Sanskrit insight that happiness is ultimately about the quality of one's inner space.` },
+      { heading:'Prāṇāyāma — The Sanskrit Science of Breath',
+        body:`<em>Prāṇāyāma</em> (<em>prāṇa</em> + <em>āyāma</em> — 'expansion of the life force' — NOT 'control of breath' as commonly mistranslated; <em>āyāma</em> means expansion, not restraint) is the fourth limb of Aṣṭāṅga Yoga. The Sanskrit precision of prāṇāyāma terminology reveals the sophistication of the practice: <em>Pūraka</em> (inhalation — from the root <em>pūr</em>, to fill); <em>Kumbhaka</em> (retention — <em>kumbha</em> = pot/vessel; the breath held as water in a pot); <em>Recaka</em> (exhalation — from <em>ric</em>, to empty); <em>Antar kumbhaka</em> (internal retention); <em>Bāhya kumbhaka</em> (external retention — the most powerful and difficult).\n\nMajor prāṇāyāma practices: <em>Nāḍī Śodhana</em> (channel-purifying breath); <em>Bhastrikā</em> (bellows breath — <em>bhastrā</em> = bellows); <em>Ujjāyī</em> (victorious breath — <em>ud + ji</em> = to conquer upward; the slight constriction of the glottis creating an ocean-like sound). Each Sanskrit name is a complete practice instruction.` },
+      { heading:'Nāda Yoga — Sanskrit and the Union Through Sound',
+        body:`<em>Nāda Yoga</em> — the yoga of sound — is the most direct application of Sanskrit phonological science to yogic practice. The <em>Haṭhayogapradīpikā</em> (15th century CE) describes Nāda Yoga as a supreme path: through sustained attention to internal sound (<em>anāhata-nāda</em> — the unstruck sound, the primordial vibration heard in deep meditation), the practitioner dissolves the individual mind into the universal Śabda-Brahman, achieving liberation.\n\nThe <em>Haṭhayogapradīpikā</em> describes four stages of Nāda: <em>Ārambha</em> (beginning — sounds like bees humming); <em>Ghaṭa</em> (pot — sounds like flute or vīṇā); <em>Paricaya</em> (intimacy — sounds like a bell or conch); <em>Niṣpatti</em> (consummation — sounds like the unceasing resonance of a great bell, becoming the sound of OM). The practice links Sanskrit phonology, rāga theory, mantra, and the deepest levels of meditation. <em>NadaBrahman</em> — the name of this platform — is itself a declaration of this vision.` }
+    ],
+    refs:[
+      {name:'Open Sadhaka',url:'https://www.opensadhaka.com/'},
+      {name:'Vedyog',url:'https://vedyog.net/'},
+      {name:'Vedadhara',url:'https://www.vedadhara.com/'},
+      {name:'Nāda Chikitsā',url:'https://nada-chikitsa.culturalmusings.com'}
+    ]
+  }
+];
+
+/* ─── LAYER 2 DATA — 14 practical application tabs ─── */
+const L2 = [
+  {
+    id:'l2_natya', icon:'🎭', label:'Nāṭya Śāstra', sublabel:'Sanskrit Keys',
+    color:'#c9963a', deva:'नाट्य',
+    subtitle:'Sanskrit as the language of performance — Bharata Muni\'s encyclopaedia',
+    sections:[
+      { heading:'Sanskrit and the Nāṭya Śāstra',
+        body:`The Nāṭya Śāstra of Bharata Muni — composed between approximately 200 BCE and 200 CE — is the foundational text of Indian performing arts, and it is entirely in Sanskrit. Its 6,000 ślokas and prose passages cover every aspect of performance: dance, drama, music, poetics, costuming, stage construction, audience psychology and the psychology of performance. The Nāṭya Śāstra is inseparable from Sanskrit — its technical vocabulary (<em>alaṃkāra, rasa, abhinaya, gāndharva, nṛtta, nṛtya, nāṭya</em>) is the vocabulary of Sanskrit aesthetics.\n\nThe text opens with a creation myth: Brahma, at the request of the gods, created the Nāṭya Veda (the fifth Veda) by taking elements from each of the four Vedas — recitation (pāṭha) from the Ṛgveda, melody (gīta) from the Sāmaveda, gesture (abhinaya) from the Yajurveda, and rasa from the Atharvaveda. This framing — the performing arts as a fifth Veda — establishes the cosmic significance of performance and roots it permanently in the Sanskrit Vedic tradition.` },
+      { heading:'Sanskrit Technical Vocabulary of Dance',
+        body:`The Sanskrit technical vocabulary of the Nāṭya Śāstra is one of the most precise and extensive technical lexicons ever developed for the performing arts. Key terms:\n\n<em>Nṛtta</em> (pure dance — movement without narrative or emotional content, for its own aesthetic beauty); <em>Nṛtya</em> (expressional dance — movement combined with abhinaya, emotional and narrative content); <em>Nāṭya</em> (drama/dance-drama — the synthesis of all performance elements); <em>Abhinaya</em> (the art of expression — from <em>abhi + nī</em>, 'to carry toward' — four types: <em>āṅgika</em>/body, <em>vācika</em>/speech, <em>āhārya</em>/costume and makeup, <em>sāttvika</em>/inner emotional states expressed involuntarily through trembling, tears, perspiration, pallor etc.); <em>Bhāva</em> (the expressed emotion — distinguished from <em>Rasa</em>, the aesthetic emotion felt by the audience); <em>Vibhāva, Anubhāva, Vyabhicāribhāva</em> (the stimuli, physical expressions, and transient emotions that combine to produce Rasa).` },
+      { heading:'The Language of Sanskrit Drama — Diglossia',
+        body:`Sanskrit drama presents one of the most sophisticated examples of <em>diglossia</em> (coexistence of high and low registers) in any theatrical tradition. The Nāṭya Śāstra specifies precisely which characters speak which language: kings, sages, gods and high-class heroes speak Sanskrit; queens, wives, high-class women (in private) speak Śaurasenī Prakrit; men of low rank and women of mixed caste speak Māgadhī Prakrit; comic characters (the Viṭa) speak Apabhraṃśa; children speak their own Prakrit.\n\nThis is not a dramatic convenience but a precise sociolinguistic mirror of ancient Indian society. The king's Sanskrit speech signals his high status and education; the queen's Prakrit signals femininity and intimacy without suggesting low status. The Nāṭya Śāstra's language system thus encodes in performance the entire social stratification of the world it depicts, using language itself as a theatrical medium.` },
+      { heading:'Gāndharva — The Sanskrit Music System',
+        body:`The Nāṭya Śāstra's treatment of music (<em>Gāndharva</em> — so named after the celestial musicians) is the foundation of Indian musicology. It describes: the seven svaras (<em>Ṣaḍja, Ṛṣabha, Gāndhāra, Madhyama, Pañcama, Dhaivata, Niṣāda</em> — Sa Ri Ga Ma Pa Da Ni) and their relationships; the 22 <em>śrutis</em> (micro-tonal intervals within the octave — the basis of Indian microtonal theory); the three <em>grāmas</em> (modal bases — Ṣaḍja grāma, Madhyama grāma, Gāndhāra grāma); the <em>mūrchanās</em> (scales produced by beginning from different notes of the grāma); and the <em>jāti</em> system (the precursor of the rāga system, with 18 classified modal frameworks).\n\nAll of this technical vocabulary is Sanskrit, and all of it is the foundation upon which the subsequent traditions of Carnatic and Hindustani classical music were built. The Sanskrit text of the Nāṭya Śāstra is thus the ultimate technical reference for all of Indian classical music.` },
+      { heading:'Sanskrit Commentaries on the Nāṭya Śāstra',
+        body:`The Nāṭya Śāstra generated an enormous commentarial tradition in Sanskrit. The most important commentary is Abhinavagupta's <em>Abhinavabhāratī</em> (c. 1000 CE) — without which many passages of the original would be incomprehensible. Abhinavagupta not only clarifies and expands on Bharata's descriptions but transforms the entire tradition through his synthesis of Rasa theory with Kashmir Śaiva philosophy.\n\nOther important commentators include Bhaṭṭa Lollaṭa (9th century CE — who proposed a theory of Rasa based on the original emotion of the character, not the audience), Śrī Śaṅkuka (9th century — who proposed the 'imitation' theory of Rasa), and Bhaṭṭa Nāyaka (10th century — who proposed the 'relishing' theory). The debate between these commentators constitutes one of the most sophisticated discussions of the nature of aesthetic experience in any philosophical tradition.` }
+    ],
+    refs:[
+      {name:'Natyashastra.culturalmusings.com',url:'https://natyashastra.culturalmusings.com'},
+      {name:'Exotica India Art',url:'https://www.exoticindiaart.com/article/the-108-poses-of-shiva-tandava-in-natya-shastra'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'}
+    ]
+  },
+  {
+    id:'l2_karanas', icon:'💃', label:'108 Karaṇas', sublabel:'Sanskrit Keys',
+    color:'#d4610a', deva:'करण',
+    subtitle:'The 108 cosmic movements — Sanskrit names and their meanings',
+    sections:[
+      { heading:'Karaṇas — Sanskrit Etymology',
+        body:`The 108 Karaṇas — the fundamental units of movement described in the Nāṭya Śāstra (Chapter 4) — are all named in Sanskrit, and their Sanskrit names reveal the philosophy embedded in each movement. <em>Karaṇa</em> comes from the root √<em>kṛ</em> (to do, to make) — a Karaṇa is thus 'a making, a doing' — a basic unit of action, a cognitive-bodily gesture that both performs and encodes a specific quality of being.\n\nThe 108 Karaṇas are described in the Nāṭya Śāstra through the formula: <em>pādabheda</em> (foot position) + <em>hastabheda</em> (hand position) + <em>śarīrabheda</em> (body position) — a Sanskrit compositional grammar of movement that parallels the grammar of language itself. The number 108 is itself of Sanskrit cosmological significance: 108 = 12 × 9 = the 12 adityas (sun-gods) × the 9 grahas (planets) — encoding the movement vocabulary of classical dance in the same cosmological matrix as Vedic astronomy.` },
+      { heading:'Selected Karaṇas — Sanskrit Names and Meanings',
+        body:`A selection of Karaṇas with their Sanskrit etymologies:\n\n<em>Sthānaka</em> (standing position — from <em>sthā</em>, to stand): the basic standing posture from which all movement emerges and to which it returns — the Karaṇa of rootedness and presence. <em>Ālīḍha</em> (stretched, bent — from <em>ā + lih</em>, to lick/touch): the fundamental asymmetric lunge position, with one knee bent — expressing dynamic readiness. <em>Pratyālīḍha</em> (the mirror of Ālīḍha): the opposite lunge — expressing the other pole of dynamic readiness.\n\n<em>Samapāda</em> (equal feet — <em>sama</em> = equal, <em>pāda</em> = foot): the position of perfect symmetry, associated with the cosmic equilibrium of Śiva in <em>Samabhanga</em> posture. <em>Bhujaṅgatrāsita</em> (frightened serpent — <em>bhujaṅga</em> = serpent, <em>trāsita</em> = frightened): the Karaṇa in which the body recoils as if startled by a serpent — expressing sudden fear.` },
+      { heading:'108 Karaṇas — Complete Index',
+        body:`The complete list of the 108 Karaṇas as named in the Nāṭya Śāstra, in Sanskrit with transliteration. Each name is a Sanskrit compound describing the key posture, movement, or quality of the Karaṇa. The number 108 corresponds to the tradition of 108 sacred names (<em>Aṣṭottaraśata Nāma</em>) found throughout Sanskrit devotional literature — positioning the body vocabulary of classical dance within the same devotional framework as the 108 names of Viṣṇu, Śiva, Devī.` },
+      { heading:'Karaṇas in Temple Sculpture — The Living Archive',
+        body:`The 108 Karaṇas are preserved in stone in the gopura (gateway tower) sculptures of the Cidambaram Naṭarāja temple (Tamil Nadu) — one of the most sacred Śiva temples in India, dedicated to Naṭarāja, the Lord of Dance. The sculptors of Cidambaram translated the Sanskrit descriptions of the 108 Karaṇas from the Nāṭya Śāstra into 108 stone relief sculptures, creating a permanent three-dimensional reference library of the dance vocabulary.\n\nThe rediscovery of these Karaṇa sculptures in the 19th and 20th centuries, and their correlation with the Sanskrit descriptions in the Nāṭya Śāstra, has been one of the most significant scholarly achievements in the study of Indian performing arts. The Cidambaram temple sculptures are now recognized as the world's most complete ancient archive of a dance vocabulary, preserved in stone for approximately 1,000 years.` },
+      { heading:'Karaṇas in Modern Practice — Reconstruction',
+        body:`The reconstruction of the 108 Karaṇas from Sanskrit textual descriptions and temple sculptures is an ongoing project involving Sanskrit scholars, classical dancers, and movement scientists. The challenge: the Sanskrit descriptions in the Nāṭya Śāstra use technical terms (<em>pādabheda, hastabheda, śarīrabheda</em> codes) that are precise but require knowledge of the full technical vocabulary to interpret correctly.\n\nMajor contributions to Karaṇa reconstruction include the work of Kapila Vatsyayan, who mapped the Nāṭya Śāstra descriptions against the Cidambaram sculptures. Modern practitioners including Alarmel Valli, Leela Samson and others have worked to embody these reconstructions in contemporary performance. The NadaBrahman platform's Nāṭya Śāstra network sites are dedicated to this ongoing reconstruction and cross-reference project.` }
+    ],
+    refs:[
+      {name:'Karanasrootmap.culturalmusings.com',url:'https://karanasrootmap.culturalmusings.com'},
+      {name:'Karanassacredsynthesis.culturalmusings.com',url:'https://karanassacredsynthesis.culturalmusings.com'},
+      {name:'Natyashastra.culturalmusings.com',url:'https://natyashastra.culturalmusings.com'},
+      {name:'Exotica India Art',url:'https://www.exoticindiaart.com/article/the-108-poses-of-shiva-tandava-in-natya-shastra'}
+    ]
+  },
+  {
+    id:'l2_mudras', icon:'🤲', label:'Mudrās', sublabel:'Sacred Gestures',
+    color:'#1a7a6e', deva:'मुद्रा',
+    subtitle:'The 64 single-hand and 28 double-hand mudrās — Sanskrit keys to gesture science',
+    sections:[
+      { heading:'Mudrā — Sanskrit Etymology and Significance',
+        body:`<em>Mudrā</em> comes from the Sanskrit root <em>mud</em> (joy, delight) + <em>rā</em> (that which gives) — 'that which gives joy' — or alternatively from <em>mud + drā</em> (to bestow delight). A mudrā is thus a gesture that confers a specific quality of consciousness, emotion or cosmic energy. In the Nāṭya Śāstra, mudrās are classified as <em>hastabheda</em> (hand distinctions) — the language of the hands in classical dance, ritual, and yoga.\n\nThe Nāṭya Śāstra (Chapter 9) describes 28 <em>asamyuta hastas</em> (single-hand gestures) and 24 <em>samyuta hastas</em> (double-hand gestures), each with its Sanskrit name, precise description of the hand shape, and its range of meanings and applications. The verse <em>yato hasta stato dṛṣṭi / yato dṛṣṭi stato manaḥ / yato manaḥ stato bhāvaḥ / yato bhāvaḥ stato rasaḥ</em> — "where the hand goes, there goes the eye; where the eye goes, there goes the mind; where the mind goes, there goes the feeling; where the feeling goes, there emerges Rasa" — is the foundational statement of mudrā theory.` },
+      { heading:'Selected Single-Hand Mudrās (Asamyuta Hastas)',
+        body:`The 28 single-hand mudrās (<em>asamyuta hastas</em>) of the Nāṭya Śāstra, with their Sanskrit names and primary meanings:\n\n<em>Patāka</em> ('flag' — four fingers together, thumb bent): the most used mudrā — used for the wind, a cloud, the sky, night, a river, a forest, the beginning and many other concepts. <em>Tripatāka</em> ('triple flag' — like Patāka but with ring finger bent): used for the crown, fire, a tree, lightning. <em>Ardhapatāka</em> ('half flag' — like Patāka but only index and middle fingers extended): used for a knife, a leaf. <em>Kartarīmukha</em> ('scissors face' — index and middle fingers extended and separated): used for a woman, two-ness, separation. <em>Mayūra</em> ('peacock' — thumb and index together with other fingers extended): imitating a peacock, applying tilaka on the forehead, stroking hair. <em>Ardhacandra</em> ('half moon' — thumb extended, other fingers joined): the moon, prayer, touching the neck.` },
+      { heading:'Double-Hand Mudrās and Cosmic Gestures',
+        body:`The 24 <em>samyuta hastas</em> (double-hand mudrās) are formed by combining the single-hand mudrās in specific ways. Each has its Sanskrit name describing the shape or the divine figure associated with it:\n\n<em>Añjali</em> ('offering, reverence' — both Patāka hands pressed together): prayer, reverence, greeting — the universal gesture of devotion. <em>Kapota</em> ('dove' — both Patāka hands pressed together with slightly separated heels): used for 'dove', modesty, a very respectful greeting. <em>Karkaṭa</em> ('crab' — fingers interlocked): the interlocking of fingers — used for a crowd, the sky, tree branches. <em>Svastika</em> ('good omen' — the cosmic cross-symbol formed by crossing the wrists): used for Garuda, a door, directions.\n\nIn tantric and ritual contexts, specific mudrās (<em>mudrābandha</em> — 'binding mudrās') are held during mantra recitation to enhance the flow of specific energies and direct the power of the mantra to specific purposes or locations.` },
+      { heading:'Mudrās in Yoga and Meditation',
+        body:`In the context of Haṭha Yoga and Tantra, mudrās extend beyond the hands to encompass specific sealing gestures of the whole body (<em>mahā mudrā, mahā bandha</em>). The <em>Haṭhayogapradīpikā</em> describes 10 mudrās, each with its Sanskrit name and precise physical description.\n\n<em>Khecarī Mudrā</em> (the 'sky-moving' gesture — khe = in the sky/void, carī = moving): the practice of turning the tongue backward to touch or reach the nasal cavity, associated in tantric texts with the tasting of the nectar (<em>amṛta</em>) that drips from the cranial vault. <em>Śāmbhavī Mudrā</em> (the mudrā of Śambhu/Śiva): the upward and inward convergence of the gaze to the <em>bhrūmadhya</em> (point between the eyebrows) — the direct gaze of Śiva-consciousness into itself. <em>Aśvinī Mudrā</em> (the mudrā of the mare — <em>aśvā</em> = mare): the rhythmic contraction and release of the anal sphincter, used to draw prāṇa upward.` },
+      { heading:'Mudrā as Sanskrit — The Body as Text',
+        body:`The most profound insight of the mudrā tradition is that the human body itself is a text written in Sanskrit. The 49 phonemes of the Sanskrit varṇamālā are ritually 'placed' on different parts of the body in the practice of <em>Nyāsa</em> (literally 'placing' — the installation of divine energies in the body through Sanskrit phonemes). Each Sanskrit phoneme corresponds to a specific part of the body, a specific goddess of the Mātṛkā pantheon, a specific cosmic function.\n\nIn <em>Ṣaḍaṅga Nyāsa</em> (six-limb installation), the six syllables or bīja mantras are installed in the six major bodily regions through touch and mantra recitation. In <em>Mātṛkā Nyāsa</em> (the complete installation), all 50 phonemes of the varṇamālā are installed from the soles of the feet to the crown of the head, transforming the practitioner's body into a living Sanskrit text — a walking alphabet of cosmic creative power. The body, through Nyāsa, becomes the Śabda-Brahman made flesh.` }
+    ],
+    refs:[
+      {name:'Natyashastra.culturalmusings.com',url:'https://natyashastra.culturalmusings.com'},
+      {name:'Vedadhara',url:'https://www.vedadhara.com/'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'}
+    ]
+  },
+  {
+    id:'l2_mantra', icon:'🕉️', label:'Mantra Corpus', sublabel:'Sacred Sound',
+    color:'#8b1a2a', deva:'मन्त्र',
+    subtitle:'The great Sanskrit mantras — structure, meaning, and living power',
+    sections:[
+      { heading:'The Structure of Sanskrit Mantras',
+        body:`A Sanskrit mantra is not a random sequence of syllables but a precisely structured composition with multiple formal components. A complete mantra traditionally has: <em>Ṛṣi</em> (the seer to whom the mantra was revealed); <em>Chandas</em> (the metre in which it is composed); <em>Devatā</em> (the divine principle the mantra embodies and invokes); <em>Bīja</em> (the seed syllable that concentrates the mantra's energy); <em>Śakti</em> (the power of the mantra — often an additional bīja); <em>Kīlaka</em> (the 'pin' that releases the mantra's power — another syllable or phrase); and the <em>Viniyoga</em> (the application — what purpose the mantra is used for).\n\nThis formal structure is always declared before reciting a complete mantra in ritual context — establishing the mantra's lineage, its frequency, its deity and its purpose. The declaration itself (in Sanskrit) is part of the practice — it aligns the practitioner's consciousness with the mantra's field before the recitation begins.` },
+      { heading:'The Gāyatrī Mantra — Structure and Significance',
+        body:`The Gāyatrī mantra (Ṛgveda 3.62.10): <em>oṃ bhūr bhuvaḥ svaḥ / tat savitur vareṇyaṃ / bhargo devasya dhīmahi / dhiyo yo naḥ pracodayāt</em> — 'OM. Earth, Atmosphere, Heaven. We meditate on the excellent radiance of the solar divinity. May that divine radiance illumine our intellect.'\n\nAnalysis of the Sanskrit: <em>Tat</em> = 'that' (the demonstrative pronoun indicating what transcends description); <em>savitur</em> = genitive of <em>savitr</em> (the solar deity, 'the impeller' — from √<em>sū</em>, to impel, to generate); <em>vareṇyam</em> = 'most excellent, most worthy of being chosen' (from √<em>vṛ</em>, to choose); <em>bhargaḥ</em> = 'radiance, brilliance, effulgence' (a noun from √<em>bharj</em>, to shine); <em>dhīmahi</em> = 'we meditate' (1st person plural optative of √<em>dhī</em>, to think, to meditate); <em>pracodayāt</em> = 'may it impel/inspire' (3rd person singular optative of <em>pra + √cud</em>, to impel). Every word is a precise Sanskrit philosophical statement.` },
+      { heading:'The Mahāmṛtyuñjaya Mantra — Sanskrit Analysis',
+        body:`The Mahāmṛtyuñjaya mantra (Ṛgveda 7.59.12, attributed to Vasiṣṭha): <em>oṃ tryambakaṃ yajāmahe / sugandhiṃ puṣṭivardhanam / urvārukamiva bandhanān / mṛtyor mukṣīya māmṛtāt</em> — 'OM. We worship the three-eyed one (Śiva), the fragrant (one who is) increaser of prosperity. May he liberate us from the bondage of death, as a cucumber from its vine — but not from immortality.'\n\nSanskrit analysis: <em>Tryambakam</em> = accusative of <em>tryambaka</em> (three-eyed — <em>tri</em> = three, <em>ambaka</em> = eye, a name of Śiva whose third eye represents transcendent wisdom); <em>yajāmahe</em> = 'we worship' (1st person plural middle of √<em>yaj</em>, to sacrifice/worship — middle voice indicating the action benefits the worshippers); <em>sugandhim</em> = 'having good fragrance' (<em>su</em> = good, <em>gandha</em> = smell); <em>urvārukamiva</em> = 'like a cucumber' (<em>urvāruka</em> = a specific type of cucumber known to detach easily from the vine — the simile for death: as the ripe cucumber releases naturally from the vine, may the soul release naturally from the body); <em>māmṛtāt</em> = 'not from immortality' (māmṛta is a negative tatpuruṣa compound: <em>mā</em> = not + <em>amṛta</em> = immortality).` },
+      { heading:'The Lalitā Sahasranāma — 1,000 Names in Sanskrit',
+        body:`The Lalitā Sahasranāma — the thousand names of the Divine Mother — from the Brahmāṇḍa Purāṇa is one of the greatest Sanskrit stotra texts and one of the most systematically comprehensive theological documents in the entire tradition. Each of its 1,000 names is a Sanskrit compound that encapsulates a specific aspect of the Divine Mother's nature, form, power, or cosmic function.\n\nThe names are arranged in a specific order that constitutes a complete description of the Śrī Vidyā tantric cosmology — beginning with the names describing the Divine Mother's transcendent nature (<em>Śrī Mātā, Śrī Mahārājñī, Śrīmat Siṃhāsaneśvarī</em>), proceeding through the names describing her creation of the cosmos, her embodiment in the human subtle body (the chakras), her worship forms, her various manifestations in the tradition's sacred geography, and concluding with her ultimate identity as pure consciousness. The 1,000 names together constitute a complete course in Śrī Vidyā philosophy — encoded in poetry.` },
+      { heading:'The Sri Rudram — Vedic Sanskrit Mantra Science',
+        body:`The Sri Rudram — the supreme Vedic hymn to Lord Rudra/Śiva — is one of the oldest and most powerful Sanskrit mantras in continuous use. It consists of the <em>Namakam</em> (Taittirīya Saṃhitā 4.5 — so named for the repeated word <em>namas</em>/obeisance) and the <em>Chamakam</em> (TS 4.7 — named for the repeated phrase <em>ca me</em>/'and to me [give this]').\n\nThe Namakam, in eleven anuvākas (sections), addresses Rudra in all his forms — as the lord of storms and destruction, as the healer, as the cosmic energy pervading all existence. It is perhaps the most linguistically complex Sanskrit text in common ritual use — employing Vedic grammatical forms, rare vocabulary and highly compressed syntax. Its eighth anuvāka — the <em>Śatarudrīya</em> (the hundred names of Rudra) — catalogues Rudra's presence in every aspect of existence, from forests and marketplaces to crossroads and armies, demonstrating the all-pervading nature of consciousness through exhaustive Sanskrit enumeration.` }
+    ],
+    refs:[
+      {name:'Shlokam.org — Rudram',url:'https://shlokam.org/shloka/rudram-namakam.htm'},
+      {name:'Vedadhara',url:'https://www.vedadhara.com/'},
+      {name:'Sanskrit Documents',url:'https://sanskritdocuments.org/'},
+      {name:'Manblunder',url:'https://manblunder.com/'}
+    ]
+  },
+  {
+    id:'l2_ayurveda', icon:'🌿', label:'Sanskrit & Āyurveda', sublabel:'Medicine',
+    color:'#1a7a6e', deva:'आयुर्वेद',
+    subtitle:'The Sanskrit language of healing — Caraka, Suśruta, and the eight limbs of medicine',
+    sections:[
+      { heading:'Āyurveda — Sanskrit Etymology',
+        body:`<em>Āyurveda</em> (<em>āyus</em> = life, lifespan + <em>veda</em> = knowledge/science) means 'the science of life' or 'the knowledge of the lifespan.' The word <em>āyus</em> has a precise Sanskrit definition: the combination of <em>śarīra</em> (body), <em>indriya</em> (senses), <em>sattva</em> (mind) and <em>ātman</em> (self) — the four together constitute <em>āyus</em>. Āyurveda is thus, from its name, a holistic science encompassing all four dimensions of living.\n\nThe Caraka Saṃhitā — one of the two principal Āyurvedic texts — begins with a Sanskrit definition of health (<em>svastha</em>): "<em>sama doṣa sama agnisca sama dhātu mala kriyāḥ / prasanna ātma indriya manaḥ svastha ity abhidhīyate</em>" — 'one in whom the doṣas are balanced, the digestive fires are balanced, the tissues and waste products are in proper function, and whose self, senses and mind are in a state of contentment — that person is called healthy.' This definition, in Sanskrit, is holistic, precise, and encompasses dimensions of health that modern biomedicine has only recently begun to articulate.` },
+      { heading:'Sanskrit and the Three Doṣas',
+        body:`The three doṣas — the foundational principle of Āyurvedic physiology — have Sanskrit names that are themselves medical diagnoses. <em>Vāta</em> (from √<em>vā</em>, to move, to blow): the doṣa of movement — governing all bodily movements, from breathing and heartbeat to nerve impulses and the movement of thought. When in balance, Vāta produces creativity, enthusiasm, lightness and clarity; when imbalanced, it produces fear, anxiety, dryness, irregularity, and degenerative neurological conditions.\n\n<em>Pitta</em> (from √<em>tap</em>, to heat, to transform; related to <em>pitṛ</em> — fire of the ancestors): the doṣa of transformation — governing all metabolic and chemical transformations in the body. Balanced Pitta: intelligence, digestion, vision, warmth, courage. Imbalanced Pitta: anger, inflammation, infection, skin conditions, liver disorders. <em>Kapha</em> (from √<em>kap</em>, to embrace; or <em>ka</em> = water + <em>pha</em> = a marker): the doṣa of structure and lubrication — governing all anabolic and structural processes. Balanced Kapha: love, patience, strength, stability, immunity. Imbalanced Kapha: lethargy, attachment, congestion, obesity, depression.` },
+      { heading:'Suśruta Saṃhitā — Sanskrit Surgical Manual',
+        body:`The Suśruta Saṃhitā (c. 600 BCE to 1st century CE) — attributed to the legendary surgeon Suśruta — is one of the foundational texts of world surgery and is entirely in Sanskrit. It describes 120 surgical instruments (<em>yantra</em> and <em>śastra</em>), 300 surgical procedures (<em>karma</em>), and classifications of disease and anatomy that remained ahead of their European equivalents for more than a millennium.\n\nSuśruta describes rhinoplasty (reconstruction of the nose using a flap of skin from the cheek or forehead) — a procedure re-discovered in Europe only in the 18th century, based in part on reports of Indian nasal reconstruction. The Sanskrit text gives precise step-by-step instructions: the shape of the skin flap (<em>naika</em>), the measurement of the defect, the preparation of the graft bed, the attachment and aftercare. The Suśruta Saṃhitā also describes the six types of surgical operations (<em>ṣaṭkarma</em>), the classification of wounds, the use of wine as an anaesthetic, and the ethics of the physician — all in elegant Sanskrit prose and verse.` },
+      { heading:'Sanskrit Pharmacopoeia — Herbs and Formulations',
+        body:`The Sanskrit names of Āyurvedic herbs and formulations constitute a precise pharmacological vocabulary. Each Sanskrit plant name typically encodes the plant's key quality, form, or therapeutic property: <em>Aśvagandha</em> (horse-smell + strength — Withania somnifera — a major adaptogenic rasāyana, named because its roots smell like horse and are said to give horse-like strength); <em>Brahmi</em> (after Brahma, the creator/Sarasvatī — Bacopa monnieri — named for its effect on the brain, the organ of creation and intelligence); <em>Śatāvarī</em> (she who has a hundred husbands — Asparagus racemosus — a major women's tonic, named for its power to sustain multiple relationships, i.e. to nourish multiple organs simultaneously); <em>Triphalā</em> (three fruits — <em>tri</em> = three, <em>phalā</em> = fruits — the combination of Āmalakī, Bibhītakī and Harītakī — a foundational Āyurvedic formula used as a gentle laxative, antioxidant and rasāyana).` },
+      { heading:'Sanskrit and the Eight Limbs of Āyurveda',
+        body:`Āyurveda is traditionally divided into eight branches (<em>aṣṭāṅga</em> — the same prefix as Aṣṭāṅga Yoga, both meaning 'eight-limbed'): <em>Kāyacikitsā</em> (internal medicine — <em>kāya</em> = body, <em>cikitsā</em> = treatment); <em>Bālagraha/Kaumārabhṛtya</em> (paediatrics — <em>bāla</em> = child, <em>graha</em> = seizure/condition); <em>Graha/Bhūtavidyā</em> (psychiatry/exorcism — <em>graha</em> = planetary influence/possession, <em>bhūta</em> = spirit); <em>Śālākya Tantra</em> (ENT and ophthalmology — <em>śalāka</em> = probe/instrument); <em>Śalya Tantra</em> (surgery — <em>śalya</em> = thorn/foreign body); <em>Viṣa Tantra/Agadatantra</em> (toxicology — <em>viṣa</em> = poison, <em>agada</em> = antidote); <em>Rasāyana Tantra</em> (rejuvenation — <em>rasa</em> = essence, <em>ayana</em> = path — the science of rejuvenation and longevity); <em>Vājīkaraṇa Tantra</em> (reproductive medicine — <em>vāji</em> = horse/potency — the science of enhancing reproductive capacity). Each Sanskrit term is simultaneously a diagnosis, a treatment philosophy and a worldview.` }
+    ],
+    refs:[
+      {name:'Vedadhara',url:'https://www.vedadhara.com/'},
+      {name:'Vedic Heritage India',url:'https://vedicheritage.gov.in/'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'}
+    ]
+  },
+  {
+    id:'l2_vastu', icon:'🏛️', label:'Sanskrit & Vāstu', sublabel:'Sacred Architecture',
+    color:'#4a1a6e', deva:'वास्तु',
+    subtitle:'The Sanskrit science of sacred space — temple, cosmos, and city planning',
+    sections:[
+      { heading:'Vāstu Śāstra — Sanskrit Etymology',
+        body:`<em>Vāstu</em> (from √<em>vas</em>, to dwell, to inhabit) means 'the site of dwelling, the dwelling place' — the word for a building site, a plot of land, a house, a city. <em>Vāstu Śāstra</em> ('the science of dwelling') is the Sanskrit tradition of sacred architecture, town planning and design — the Indian equivalent of Feng Shui, with considerably greater mathematical and cosmological elaboration.\n\nThe principal Sanskrit texts of Vāstu Śāstra include the <em>Mānasāra</em> (a comprehensive treatise on architecture in Sanskrit verse, dealing with town planning, residential buildings, temples and palace complexes), the <em>Mayamata</em> (attributed to the architect Maya — a treatise on temple design, residential design and town planning), and the <em>Bṛhat Saṃhitā</em> of Varāhamihira (6th century CE, covering astronomy, mathematics, divination, architecture, agriculture and many other subjects in Sanskrit verse).` },
+      { heading:'The Sanskrit Vocabulary of Sacred Architecture',
+        body:`The Sanskrit vocabulary of temple architecture is one of the most elaborate technical lexicons in the language. Major technical terms:\n\n<em>Vimāna</em> (the main tower of the temple — from <em>vi + mā</em>, that which is carefully measured — the tower above the sanctum sanctorum); <em>Gopura</em> (the gateway tower — <em>go</em> = cow/rays of light + <em>pura</em> = city gate — the great entrance towers of South Indian temples, often larger than the main vimāna); <em>Garbhagṛha</em> (the sanctum sanctorum — <em>garbha</em> = womb + <em>gṛha</em> = house — the innermost chamber containing the primary deity, identified with the primordial womb from which creation emerged); <em>Maṇḍapa</em> (the pillared hall — from √<em>maṇḍ</em>, to adorn/prepare — the open hall preceding the sanctum, used for worship and performance); <em>Prākāra</em> (the enclosure wall — <em>prā</em> = around + √<em>kṛ</em>, to make).` },
+      { heading:'The Vāstupuruṣa — Sanskrit Cosmological Mapping',
+        body:`The central concept of Vāstu Śāstra is the <em>Vāstupuruṣa</em> — the cosmic being (Puruṣa) who is imagined as lying prostrate in the building site, his body mapped onto the plot of land. The different parts of the site correspond to different parts of the Vāstupuruṣa's body and to different cosmic energies (<em>devatās</em>), and the placement of different rooms and functions within the building is designed to harmonize with these cosmological correspondences.\n\nThe <em>Vāstupuruṣa Maṇḍala</em> — a gridded diagram of the site divided into 8×8 = 64 squares (or 9×9 = 81 squares), each assigned to a specific deity — is the planning tool of traditional Indian architecture. Its Sanskrit names for each deity/zone and the specific functions appropriate to each zone constitute a complete cosmological mapping of domestic and sacred space. Northeast (<em>Īśānya</em>, the zone of Śiva — appropriate for the prayer room or water source); Southeast (<em>Āgneya</em>, zone of Agni/fire — appropriate for the kitchen); Northwest (<em>Vāyavya</em>, zone of Vāyu/wind — appropriate for storage or guest rooms); Southwest (<em>Nairṛtya</em>, zone of Nairṛti/decay — to be left heavy and undisturbed — master bedroom or treasury).` },
+      { heading:'Sanskrit Temple Proportions — The Mānasāra System',
+        body:`The Mānasāra system of temple proportions is encoded entirely in Sanskrit and uses a unit called the <em>māna</em> (measure) — from the same root as <em>mātrā</em> (the unit of syllable duration in Sanskrit prosody). This is not coincidental: the same principle of precise quantitative measurement that governs Sanskrit metre also governs the dimensions of the temple. The temple, like the Sanskrit poem, is a proportional structure whose dimensions are determined by formal rules.\n\nThe Mānasāra describes eight types of temple (<em>meru, mandara, kailāsa, śikhara, vimāna, bhavana, nandana, nandini</em>) and specifies the precise proportional relationships between their components — the ratio of base to height, the number of stories, the shape of the crowning element — all in Sanskrit verse that is simultaneously architectural specification and devotional poetry. The temple is understood as a three-dimensional Sanskrit text — a mantra in stone — whose every proportion encodes a cosmological relationship.` },
+      { heading:'Sanskrit and the 64 Arts',
+        body:`The Vātsyāyana Kāmasūtra (c. 3rd century CE) lists 64 arts (<em>catuḥṣaṣṭi kalā</em>) that a cultivated person should master — and this list, in Sanskrit, is itself one of the most revealing documents of classical Indian culture. The 64 arts include: <em>gīta</em> (singing), <em>vādya</em> (playing musical instruments), <em>nṛtya</em> (dance), <em>nāṭya</em> (drama), <em>ālekhya</em> (painting), <em>viśeṣakacchhedya</em> (the art of decorating body/floors), <em>taṇḍulakusumavalibhāṅga</em> (making rice-flour and flower designs), <em>puṣpāstaraṇa</em> (flower arranging), <em>daśanadhavananetra</em> (dental hygiene and eye care), <em>vāstuvidyā</em> (architecture), <em>ratnāvacara</em> (gem-testing), <em>suvarnakāra</em> (goldsmithing) — through to <em>deśabhāṣājñāna</em> (knowledge of regional dialects) and <em>samasyāpūraṇa</em> (completing verse puzzles). The list demonstrates the holistic cultural ideal of Sanskrit civilization: the cultivated person was simultaneously artist, scientist, philosopher, healer, architect and poet.` }
+    ],
+    refs:[
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'},
+      {name:'Vedic Heritage India',url:'https://vedicheritage.gov.in/'},
+      {name:'Open Library',url:'https://openlibrary.org/subjects/advaita'}
+    ]
+  },
+  {
+    id:'l2_jyotisha', icon:'⭐', label:'Sanskrit & Jyotiṣa', sublabel:'Astronomy & Astrology',
+    color:'#c9963a', deva:'ज्योतिष',
+    subtitle:'Sanskrit and the science of light — the cosmos in language',
+    sections:[
+      { heading:'Jyotiṣa — Sanskrit Etymology',
+        body:`<em>Jyotiṣa</em> (from <em>jyotis</em> = light, star + the suffix <em>-ṣa</em>) means 'the science of light, the science of the stars.' It is one of the six Vedāṅgas — the limbs of the Veda — and in its Vedic form was primarily concerned with calculating the correct astronomical times for Vedic sacrifices. Over centuries, it expanded into a comprehensive system of astronomy, mathematics and predictive astrology.\n\nThe Sanskrit vocabulary of Jyotiṣa is extensive and precise: <em>graha</em> (planet — from √<em>grah</em>, to grasp — the celestial body that 'grasps' the destiny of the native); <em>rāśi</em> (zodiacal sign — from <em>rāśī</em>, a heap, a collection — the 12 divisions of the ecliptic, each containing 30° of arc); <em>nakṣatra</em> (lunar mansion — <em>nak</em> = night + <em>kṣatra</em> = ruling — one of 27 (or 28) divisions of the zodiac determined by the moon's daily position); <em>lagna</em> (ascendant — from √<em>lag</em>, to be attached — the degree of the zodiac rising on the eastern horizon at birth).` },
+      { heading:'The Sanskrit Astronomical Achievement',
+        body:`Sanskrit astronomical texts represent one of the highest scientific achievements of the ancient world. Key accomplishments:\n\nĀryabhaṭa (<em>Āryabhaṭīya</em>, 499 CE): calculated the sidereal rotation of the earth in 23 hours 56 minutes 4 seconds (modern value: 23:56:4.091); proposed that the earth rotates on its axis (a heliocentric insight 1,000 years before Copernicus); calculated the length of the solar year as 365 days 6 hours 12 minutes 30 seconds (an error of only 3 minutes 20 seconds); computed the circumference of the earth as 24,835 miles (modern value: 24,902 miles).\n\nBrahmagupta (<em>Brāhmasphuṭasiddhānta</em>, 628 CE): gave the rules for computing solar and lunar eclipses; described the attraction of objects toward the earth (anticipating gravity); solved quadratic indeterminate equations (Pell's equations) that European mathematicians would not crack until the 17th century.\n\nAll of this astronomy was composed in Sanskrit verse — the mathematical rules are embedded in memorizable ślokas.` },
+      { heading:'Sanskrit Names of Celestial Bodies',
+        body:`The Sanskrit names of the planets and stars constitute a complete mythology encoded in astronomical language. The nine planets (<em>nava graha</em>): <em>Sūrya</em> (Sun — 'the self-luminous one'); <em>Candra</em> (Moon — 'the shining one' from √<em>cand</em>, to gleam); <em>Maṅgala</em> (Mars — 'the auspicious one,' also Kuja 'born from earth/Ka'); <em>Budha</em> (Mercury — 'the awakened, the discerning one,' son of the Moon — related to <em>bodha</em>, awakening, and to the Buddha's title 'Awakened One'); <em>Bṛhaspati</em> (Jupiter — 'the lord of prayer' — <em>bṛhas</em>/prayer + <em>pati</em>/lord, the teacher of the gods, also called Guru); <em>Śukra</em> (Venus — 'the bright, the pure, the potent one,' teacher of the asuras); <em>Śani</em> (Saturn — 'the slow one' from √<em>śan</em>, to move slowly, son of the Sun); <em>Rāhu</em> (ascending node of the moon — the severed head of the cosmic serpent that causes solar and lunar eclipses); <em>Ketu</em> (descending node — the tail of the same serpent).` },
+      { heading:'The 27 Nakṣatras — Sanskrit Lunar Calendar',
+        body:`The 27 (sometimes 28) <em>nakṣatras</em> — the lunar mansions through which the moon passes in its monthly journey — are one of the oldest astronomical systems in the world and are foundational to Vedic astrology, muhūrta (electional astrology — choosing auspicious times), and the Hindu calendar. Each nakṣatra has its Sanskrit name, its presiding deity (<em>adhidevatā</em>), its ruling planet (<em>svāmi</em>), its symbol, and its associated qualities and omens.\n\nExamples: <em>Aśvinī</em> (the physician horsemen — the first nakṣatra, in Aries, ruled by Ketu, presided over by the Aśvins — twin physician gods of the Vedas); <em>Rohiṇī</em> ('the red one' — the red star Aldebaran in Taurus, the moon's favorite station, associated with Brahma, ruled by the Moon); <em>Ārdrā</em> ('the moist one' — the star Betelgeuse, associated with the tear-drop, with storms, with Rudra — presiding over destruction and renewal); <em>Puṣya</em> ('the nourisher' — the most auspicious nakṣatra for beginning important projects, associated with Bṛhaspati/Jupiter); <em>Citrā</em> ('the brilliant, variegated one' — the star Spica, associated with Viśvakarman, the divine architect).` },
+      { heading:'Sanskrit and the Time Cycles — Yuga System',
+        body:`One of the most remarkable features of Sanskrit cosmological literature is the scale of time cycles described with mathematical precision in the Purāṇas and the astronomical texts. The basic unit is the <em>yuga</em> (cosmic age): <em>Kṛta/Satya Yuga</em> = 1,728,000 years; <em>Tretā Yuga</em> = 1,296,000 years; <em>Dvāpara Yuga</em> = 864,000 years; <em>Kali Yuga</em> = 432,000 years (the present age — said to have begun in 3102 BCE with the death of Krishna). One <em>Mahāyuga</em> = 4,320,000 years. One <em>Manvantara</em> = 71 Mahāyugas = 306,720,000 years. One <em>Kalpa</em> (day of Brahma) = 14 Manvantaras = 4,294,080,000 years.\n\nThis last figure — approximately 4.3 billion years — is strikingly close to the modern scientific estimate of the age of the Earth (4.54 billion years) and is within the same order of magnitude as the age of the universe (13.8 billion years). Whether this is coincidence or reflects genuine ancient astronomical insight is debated — but the Sanskrit cosmological vocabulary of vast time cycles uniquely prepared Indian civilization for the post-Darwinian, post-Big-Bang understanding of cosmic time that challenged Western civilization's much shorter biblical chronology.` }
+    ],
+    refs:[
+      {name:'Vedic Heritage India',url:'https://vedicheritage.gov.in/'},
+      {name:'Veda Purana',url:'https://vedapurana.org/'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'}
+    ]
+  },
+  {
+    id:'l2_mathematics', icon:'🔢', label:'Sanskrit & Mathematics', sublabel:'Number Science',
+    color:'#d4610a', deva:'गणित',
+    subtitle:'Zero, infinity, and binary — Sanskrit\'s mathematical revolution',
+    sections:[
+      { heading:'Sanskrit and the Mathematical Zero',
+        body:`The concept of zero as a number — not merely as an absence or a placeholder but as a quantity with which arithmetic operations can be performed — was developed and first clearly articulated in Sanskrit mathematical texts. The Sanskrit word for zero — <em>śūnya</em> (literally 'empty, void' — from √<em>śū</em>, to swell, then to hollow out — the same root as <em>śūnyatā</em>, the Buddhist philosophical concept of emptiness) — reveals the philosophical context in which zero was conceived: it is not nothing but the pregnant void, the fullness that appears as emptiness, the creative silence from which all numbers emerge.\n\nBrahmagupta's <em>Brāhmasphuṭasiddhānta</em> (628 CE) states, in Sanskrit verse: "<em>sūnyayoḥ yoge śūnyaṃ / sūnya-dhana yoge dhanaṃ</em>" — 'The sum of zero and zero is zero; the sum of zero and a positive number is that positive number' — and goes on to give rules for multiplication and division involving zero, including the problematic case of 0/0 (which Brahmagupta handled by proposing the answer is zero — a result later corrected by Bhāskara II who proposed ∞).` },
+      { heading:'The Decimal Positional System — Sanskrit Origins',
+        body:`The positional decimal number system — the system used in all modern mathematics, engineering and computing — was developed in Sanskrit-speaking India and transmitted to the world through Arabic mathematical texts. The system's key features: ten digits (0–9), positional notation (the value of a digit depends on its position), the use of zero as a place-holder and as a number in its own right.\n\nThe Sanskrit mathematical texts use a remarkable system for representing numbers in verse (avoiding the repetition of numbers in metrical poetry): the <em>bhūta-saṃkhyā</em> ('object-numerals') system, where Sanskrit words for specific objects encode their associated numbers. <em>sūnya/ākāśa/kha</em> (void/sky = 0), <em>candra/indu</em> (moon = 1), <em>nayana/akṣi/locana</em> (eye = 2), <em>agni/vahni/anala</em> (fire = 3 — the three sacred fires), <em>veda</em> (the Vedas = 4), <em>ṣaṭ/ṣaḍ/aṃśu</em> (the number 6 or its synonyms = 6), <em>aśva/turaga</em> (horse = 7 — in some lists). This system allowed Sanskrit mathematical texts to embed numbers in flowing verse while maintaining precision.` },
+      { heading:'Piṅgala and Binary — 3rd Century BCE',
+        body:`Piṅgala's <em>Chandaḥśāstra</em> (c. 300–200 BCE) — the foundational text of Sanskrit prosody — contains the earliest known use of what we would now call a binary number system. In enumerating the possible patterns of short (laghu, 0) and long (guru, 1) syllables in a verse-line of n syllables, Piṅgala developed a notation equivalent to binary representation of numbers from 0 to 2ⁿ - 1.\n\nPiṅgala also described what is now called Pascal's triangle (<em>meru-prastāra</em> — 'the spreading of Mount Meru') as a means of computing the number of verse-patterns of a given length containing k long syllables (the binomial coefficient C(n,k)). The Fibonacci sequence appears in Piṅgala's work in the context of computing the number of verse-patterns of a given length using short (1 mātrā) and long (2 mātrā) syllables — the answer to this combinatorial problem is the Fibonacci number. All of this mathematical discovery is embedded in a Sanskrit text about poetry — demonstrating that in the Sanskrit tradition, mathematics and art are not separate domains.` },
+      { heading:'Bhāskara II\'s Līlāvatī — Mathematics as Sanskrit Poetry',
+        body:`Bhāskara II's <em>Līlāvatī</em> (c. 1150 CE) is one of the most remarkable texts in the history of mathematics: a complete arithmetic textbook written in elegant Sanskrit verse, addressed to a young woman named Līlāvatī ('the playful one' — presumably the author's daughter). The text covers arithmetic, fractions, progressions, plane geometry, solid geometry, and more — all in Sanskrit ślokas that are simultaneously mathematical problems and lyrical poetry.\n\nA sample problem from Līlāvatī (in translation): "Beautiful and dear Līlāvatī, whose eyes are like the fawn's, tell me what are the numbers resulting from 135 multiplied by 12? If thou be skilled in multiplication by whole numbers and by fractions — tell me, auspicious woman, the result of multiplication of 135 by 12." The Sanskrit original is in a lyrical metre, and the combination of mathematical precision and poetic address makes Līlāvatī one of the most charming mathematical texts ever written. The tradition of embedding mathematical instruction in Sanskrit verse — making mathematics memorizable, beautiful, and accessible — is one of the most distinctive contributions of Sanskrit civilization to the history of knowledge.` },
+      { heading:'Sanskrit and the Concept of Infinity',
+        body:`Sanskrit philosophical and mathematical texts developed sophisticated concepts of infinity (<em>ananta</em> — 'without end,' from <em>an</em> = not + <em>anta</em> = end) and infinitesimal (<em>aṇu</em> — 'atom, the infinitely small,' from √<em>aṇ</em>, to breathe, to be alive — the smallest breathing particle) long before these concepts were formalized in Western mathematics. Jain mathematics (written in Sanskrit and Prākrit) developed a classification of infinities into multiple orders:\n\n<em>Saṃkhyāta</em> (numerable/countable — a very large but finite number); <em>Asaṃkhyāta</em> (innumerable — beyond counting but bounded); <em>Ananta</em> (infinite — multiple types: <em>ananta</em> = simple infinite, <em>anantānanta</em> = infinite × infinite). This Jain classification of orders of infinity anticipates Cantor's transfinite numbers (developed in the 1870s CE) by approximately 1,500 years. The Sanskrit philosophical concept of <em>Brahman</em> as <em>anantam</em> (infinite) — from the Taittirīya Upaniṣad's formula <em>satyam jñānam anantam brahma</em> (Brahman is truth, consciousness, infinite) — identifies the Absolute with the mathematical concept of infinity, making the pursuit of mathematical understanding a form of spiritual inquiry.` }
+    ],
+    refs:[
+      {name:'Veda Purana',url:'https://vedapurana.org/'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'},
+      {name:'Sanskrit Documents',url:'https://sanskritdocuments.org/'}
+    ]
+  },
+  {
+    id:'l2_music_theory', icon:'🎵', label:'Sanskrit Music Theory', sublabel:'Rāga Science',
+    color:'#8b1a2a', deva:'संगीत',
+    subtitle:'The complete Sanskrit vocabulary of Indian classical music',
+    sections:[
+      { heading:'The Sanskrit Foundation of Indian Music',
+        body:`The entire theoretical edifice of Indian classical music — both Carnatic and Hindustani — is built on Sanskrit foundations. The technical vocabulary of rāga theory, the names of the rāgas themselves, the treatises that define and classify them, the rules of performance, the cosmological correspondences of rāgas with times of day, seasons and emotional states — all of this is encoded in Sanskrit and accessible only through Sanskrit.\n\nThe foundational musical texts in Sanskrit: <em>Nāṭya Śāstra</em> of Bharata Muni (the Gāndharva section, c. 200 BCE–200 CE — the oldest surviving music theory text); <em>Dattilam</em> (c. 200–400 CE — the earliest independent Sanskrit music theory text, attributing to the sage Dattila); <em>Bṛhaddeśī</em> of Mataṅga (c. 9th century CE — the text that first uses the word <em>rāga</em> in its technical sense); <em>Saṃgīta Ratnākara</em> of Śārṅgadeva (1210–1247 CE — the most comprehensive Sanskrit music theory text, covering all aspects of Carnatic-era practice); <em>Rāga Vibodha</em> of Somnātha (1609 CE — a systematic treatise on rāgas with definitions of each); <em>Caturdaṇḍiprakāśikā</em> of Venkaṭamakhin (c. 1620 CE — the foundational text of the Melakarta system of 72 parent scales).` },
+      { heading:'Sanskrit Rāga Nomenclature',
+        body:`Sanskrit rāga names are not arbitrary labels but descriptive poetic names that encode the rāga's character, origin, presiding deity or cosmological association. <em>Bhairavī</em> (feminine form of Bhairava — the fierce aspect of Śiva — associated with pathos, farewell, dawn, the end of a concert); <em>Yaman/Kalyāṇī</em> (from <em>kalyāṇa</em> = auspicious, beautiful — the evening rāga of grandeur and repose, associated with Sarasvatī); <em>Bhairavi</em> (feminine of Bhairava — the rāga of Kali's energy, of pathos and feminine power); <em>Mālkauns/Hindolam</em> (from <em>hindola</em> = swing — the rāga of gentle rocking motion, associated with Viṣṇu's swinging cradle); <em>Darbāri Kāṇāḍā</em> (the rāga of the court — <em>darbār</em> = royal court — composed by Mian Tansen for the court of Akbar).\n\nThe Sanskrit rāga descriptions (<em>rāga-lakṣaṇa</em>) in the treatises describe each rāga's scale (āroha/avaroha), characteristic phrases (<em>pakad</em>), time of performance, season, presiding deity, associated colours and emotional states — creating a multidimensional portrait of each rāga's identity.` },
+      { heading:'The Sanskrit Solfege — Sargam',
+        body:`The Indian solfege system — <em>Sargam</em> (from <em>Sa Ri Ga Ma</em>, the first four note names) — is entirely derived from Sanskrit. The full names of the seven notes are Sanskrit words: <em>Ṣaḍja</em> (Sa — 'born of six' — so named because it gives birth to six other notes through its overtones; or 'that which produces from six [sense organs]'); <em>Ṛṣabha</em> (Ri — 'bull' — the regal tone, associated with the sound of a bull calling); <em>Gāndhāra</em> (Ga — the note associated with the Gandharvas, the celestial musicians, also associated with the sweet singing of the Gandharva region); <em>Madhyama</em> (Ma — 'middle' — the central note of the scale); <em>Pañcama</em> (Pa — 'fifth' — the fifth note, a perfect fifth above Sa, the most stable relationship in Indian music after Sa); <em>Dhaivata</em> (Dha — from <em>dhavala</em> = white, or from <em>dhaivata</em> = relating to property/wealth); <em>Niṣāda</em> (Ni — 'one who lies down, the sitter' — the note that descends back toward Sa, completing the octave).` },
+      { heading:'Sanskrit and Rasa in Music',
+        body:`The Rasa theory of Sanskrit aesthetics — the doctrine of the nine aesthetic emotions (<em>nava rasa</em>) — is directly applied to Indian classical music. Each rāga is associated with one or more rasas, and the theory of how a rāga evokes a specific rasa is a central concern of Sanskrit music theory texts.\n\nThe <em>Saṃgīta Ratnākara</em> systematically maps rāgas to rasas: Bhairavī → Karuṇā rasa (pathos); Śrī rāga → Bhakti/devotion (sometimes classified as a form of Śānta rasa); Todi → Karuṇā; Kalyāṇī → Śṛṅgāra (love); Kāmbhoji → Śṛṅgāra; Mālkauns → Bhayanaka (terror)/Raudra (fury); Hamsadhvani → Śānta/Adbhuta (wonder). The mechanism of Rasa evocation in music is the same as in poetry and drama: the musical equivalent of <em>vibhāva</em> (the rāga's characteristic notes and phrases) stimulates <em>anubhāva</em> (the musician's expressive nuances in performance) and <em>sañcāribhāva</em> (the transient emotional colorings of the performance) in the listener's <em>sahṛdaya</em> (aesthetic sensibility), producing the universalized aesthetic emotion of Rasa.` },
+      { heading:'Sanskrit Tāla Theory — The Rhythm Science',
+        body:`The Sanskrit technical vocabulary of tāla (rhythm) is as extensive and precise as that of rāga. Key terms:\n\n<em>Tāla</em> (from √<em>tāl</em>, to strike — the 'strike' that marks the rhythmic cycle); <em>Āvartana</em> (the cycle — one complete rhythmic period); <em>Vibhāga</em> (the division of the tāla cycle into sections); <em>Mātrā</em> (the time unit — the same word as the unit of syllable duration in Sanskrit prosody — the connection between poetic metre and musical rhythm made explicit in the shared vocabulary); <em>Laghu</em> (light/short — one mātrā, the basic duration unit — also the short syllable in Sanskrit prosody); <em>Guru</em> (heavy/long — two mātrās — also the long syllable in Sanskrit prosody); <em>Pluta</em> (prolonged — three mātrās — the same term used in Sanskrit prosody for the extra-long vowel); <em>Anudrutam</em> (half beat, ½ mātrā); <em>Drutam</em> (2 mātrās); <em>Sarpini</em> (the tāla hand pattern — the snake-like movements of the hand that mark the vibhāgas of the tāla). The Sanskrit prosody–music tāla connection demonstrates that verbal and musical rhythms are, in the Indian tradition, literally the same science.` }
+    ],
+    refs:[
+      {name:'Nāda Chikitsā',url:'https://nada-chikitsa.culturalmusings.com'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'},
+      {name:'Sanskrit Documents',url:'https://sanskritdocuments.org/'},
+      {name:'Vedadhara',url:'https://www.vedadhara.com/'}
+    ]
+  },
+  {
+    id:'l2_tantra', icon:'✋', label:'Sanskrit & Tantra', sublabel:'Nyāsa & Śakti',
+    color:'#4a1a6e', deva:'तन्त्र',
+    subtitle:'The tantric applications of Sanskrit — Nyāsa, yantra, and the body as text',
+    sections:[
+      { heading:'Tantra — Sanskrit Etymology',
+        body:`<em>Tantra</em> (from √<em>tan</em>, to extend, to expand + <em>tra</em>, instrument — 'that which extends/expands knowledge') is the vast Sanskrit tradition of texts dealing with the direct experience of divine reality through the transformation of the body-mind through ritual, mantra, yantra, mudrā and meditation. The Sanskrit texts of Tantra are among the most technically demanding in the entire tradition — written in a deliberately encoded language (<em>sandha-bhāṣā</em> or 'twilight language') that requires initiation (dīkṣā) and a qualified teacher to decode.\n\nMajor Sanskrit Tantra traditions: <em>Śaiva Tantra</em> (texts devoted to Śiva as the ultimate reality — including the 92 Āgamas and Tantras of the Śaiva tradition); <em>Śākta Tantra</em> (texts devoted to Śakti/Devī as the ultimate reality — including the Devi Māhātmyam, the Lalitā Sahasranāma, the Soundarya Laharī, the Tripurā Rahasya); <em>Vaiṣṇava Tantra</em> (texts devoted to Viṣṇu/Nārāyaṇa — the Pañcarātra Āgamas); <em>Buddhist Tantra</em> (the Vajrayāna texts — originally in Sanskrit, translated into Tibetan and Chinese).` },
+      { heading:'Nyāsa — The Sanskrit Alphabet Installed in the Body',
+        body:`<em>Nyāsa</em> (literally 'placing, installation' — from <em>ni + ās</em>, to sit down in, to place firmly) is one of the most distinctive practices of Sanskrit Tantra: the ritual installation of Sanskrit phonemes, divine names, and mantra components in specific parts of the practitioner's body through simultaneous touch and Sanskrit recitation. Through Nyāsa, the practitioner's body is transformed into a living Sanskrit text, inhabited by the divine principles encoded in the phonemes.\n\nThe principal Nyāsa practices: <em>Ṣaḍaṅga Nyāsa</em> (six-limb installation — the installation of the six syllables of the teacher-lineage mantra on six bodily regions: heart, head, crown, eyes/armor, three eyes, palms); <em>Mātṛkā Nyāsa</em> (matrix installation — all 50 phonemes of the Sanskrit varṇamālā installed from feet to crown, transforming the body into the complete phonemic matrix of creation); <em>Kara Nyāsa</em> (hand installation — specific syllables or mantras installed on the five fingers and palm of each hand, transforming the hands into divine instruments before ritual worship).` },
+      { heading:'Yantra — Sanskrit Geometric Texts',
+        body:`A <em>yantra</em> (from √<em>yam</em>, to hold, to restrain + the instrumental suffix -<em>tra</em> = 'instrument' — 'that which holds/restrains [a divine energy]') is a geometric diagram that is the visual/spatial equivalent of a Sanskrit mantra. Just as a mantra is a sonic form of a divine principle, a yantra is its visual form — a compressed diagram of the deity's energy-structure.\n\nThe most famous yantra is the <em>Śrī Yantra</em> (also <em>Śrī Cakra</em>) — the geometric diagram of the Śrī Vidyā tradition of Devī worship, consisting of 9 interlocking triangles (4 pointing up = Śiva/masculine, 5 pointing down = Śakti/feminine) generating 43 smaller triangles, surrounded by two rings of lotus petals (8 and 16), enclosed in three concentric squares forming the outer boundary. The Śrī Yantra encodes the entire cosmological structure of Śrī Vidyā philosophy — the 64 Yoginīs, the 9 Āvaraṇas (enclosures), the progressive dissolution of multiplicity into unity — all in a geometric language that is the visual equivalent of the Lalitā Sahasranāma's 1,000 Sanskrit names.` },
+      { heading:'Soundarya Laharī — Sanskrit Tantra as Poetry',
+        body:`The <em>Soundarya Laharī</em> ('Waves of Beauty/Bliss' — <em>soundarya</em> = beauty/bliss, <em>laharī</em> = wave) is the supreme example of Sanskrit Tantric poetry — 100 verses attributed to Adi Shankaracharya (c. 788–820 CE), the first 41 verses dealing with the Śrī Yantra cosmology (<em>Ānandalaharī</em>) and verses 42–100 describing the Devī's physical form from crown to feet in rapturous Sanskrit poetry (<em>Soundarya Laharī</em> proper).\n\nEach verse of the Soundarya Laharī simultaneously functions as: a Sanskrit poem of exceptional beauty and technical virtuosity; a yantra description (each verse encodes a specific yantra); a mantra (the syllable count and phoneme combinations of each verse produce specific energetic effects when recited correctly); and a meditation guide (each verse directs attention to a specific aspect of the Devī's form that is simultaneously an aspect of the practitioner's own subtle body). The Soundarya Laharī is thus the supreme example of Sanskrit's capacity to operate simultaneously as poetry, science, ritual, and meditation — all in 100 ślokas.` },
+      { heading:'Khaḍgamālā — Sanskrit Invocation of the Śrī Chakra',
+        body:`The <em>Khaḍgamālā Stotram</em> ('The Garland of the Sword') is a compact Sanskrit text of approximately 30 verses that constitutes a complete invocation of the entire Śrī Chakra cosmology — naming all 64 Yoginīs of the 9 Āvaraṇas (enclosures) of the Śrī Yantra, along with the Devī herself and her retinue, in a single continuous garland of Sanskrit names.\n\nEach name in the Khaḍgamālā is a Sanskrit compound that encodes the specific Yoginī's quality, function and position within the Śrī Chakra. The recitation of the Khaḍgamālā is considered equivalent to a complete circumambulation of the Śrī Chakra — because by naming each Yoginī in sequence from the outer to the innermost enclosure, the practitioner's consciousness moves through the entire cosmological structure from the periphery to the center, from multiplicity to unity, from the manifest world to the Absolute. The Sanskrit names of the Yoginīs are thus not merely labels but navigational instruments — a map of the cosmos written in phonemes.` }
+    ],
+    refs:[
+      {name:'Kamakoti.org',url:'https://www.kamakoti.org/'},
+      {name:'Vedadhara',url:'https://www.vedadhara.com/'},
+      {name:'Manblunder',url:'https://manblunder.com/'},
+      {name:'Open Sadhaka',url:'https://www.opensadhaka.com/'}
+    ]
+  },
+  {
+    id:'l2_consciousness', icon:'🔮', label:'Sanskrit & Consciousness', sublabel:'Philosophy',
+    color:'#c9963a', deva:'चेतना',
+    subtitle:'Sanskrit as the map of consciousness — Advaita, Kashmir Śaivism, Yoga',
+    sections:[
+      { heading:'The Sanskrit Vocabulary of Consciousness',
+        body:`No other language in human history has developed as extensive and precise a technical vocabulary for describing the structure and states of consciousness as Sanskrit. This vocabulary — developed over 3,500 years through the Upaniṣads, the Yoga Śāstras, the Buddhist Abhidharma, the Sāṃkhya-Yoga school, and the non-dual traditions of Advaita Vedānta and Kashmir Śaivism — constitutes, arguably, the most sophisticated phenomenological literature in existence.\n\nKey Sanskrit consciousness terms: <em>Citta</em> (mind-stuff — the substrate of all mental activity, including unconscious conditioning); <em>Cetanā</em> (intentional consciousness — the directedness of awareness toward an object); <em>Prajñā</em> (wisdom-consciousness — the knowing faculty at its highest, non-dual expression); <em>Vijñāna</em> (discriminating consciousness — the analytical faculty; also the 7th of the 8 Buddhist vijñānas/consciousnesses); <em>Ālaya-vijñāna</em> (storehouse consciousness — the Buddhist concept of the underlying repository of all karmic impressions, anticipating the psychoanalytic concept of the unconscious); <em>Spanda</em> (vibration — the Kashmir Śaiva concept of the primordial pulse of consciousness, a vibration that precedes and underlies all experience).` },
+      { heading:'The Four States of Consciousness — Sanskrit Analysis',
+        body:`The Māṇḍūkya Upaniṣad (12 verses, the shortest and most philosophically dense of the Upaniṣads) identifies four states of consciousness, each with its Sanskrit name:\n\n<em>Jāgrat</em> (waking — from √<em>jāg/jāgṛ</em>, to be awake — the ordinary state of consciousness mediated by the physical senses); <em>Svapna</em> (dreaming — from √<em>svap</em>, to sleep — the state in which the mind creates its own objects without sensory input); <em>Suṣupti</em> (deep sleep — <em>su</em> = good + <em>ṣupti</em> = sleep — the state of unconscious dreamless sleep in which the individual mind dissolves temporarily into the undifferentiated awareness); <em>Turīya</em> (the fourth — simply 'the fourth,' beyond naming — the background awareness that is present in all three ordinary states, the witness-consciousness that never sleeps, dreams or wakes because it is that in which waking, dreaming and sleeping appear).\n\nThe Māṇḍūkya equates each state with a component of the syllable <em>OM</em> (A = waking, U = dreaming, M = deep sleep, silence between repetitions = Turīya), making the recitation of OM a meditation on the four states of consciousness — and making Sanskrit phonology simultaneously a phenomenological investigation.` },
+      { heading:'Advaita Vedānta — The Non-Dual Vision in Sanskrit',
+        body:`Adi Shankaracharya's Advaita Vedānta ('non-dual end of the Veda') — articulated in his Sanskrit commentaries on the Brahmasūtras, the 10 principal Upaniṣads, and the Bhagavad Gītā, and in independent works like the <em>Vivekacūḍāmaṇi</em> (Crest Jewel of Discrimination) and the <em>Ātmabodha</em> (Self-Knowledge) — represents the most rigorous non-dualist philosophy in the Sanskrit tradition.\n\nShankaracharya's Sanskrit arguments for Advaita: <em>Brahma satyaṃ jagan mithyā jīvo brahmaiva nāparaḥ</em> — 'Brahman is real; the world is apparent; the individual soul is none other than Brahman' (the Advaita mahāvākya). His concept of <em>adhyāsa</em> (superimposition — the projection of the not-self onto the Self, the source of all experience of duality) anticipates Husserl's phenomenological concept of constitution. His use of the Sanskrit distinction between <em>paramārtha-satya</em> (ultimate truth — Brahman as the only reality) and <em>vyavahārika-satya</em> (conventional truth — the functional reality of the world for practical purposes) anticipates the Kantian distinction between things-in-themselves and phenomena.` },
+      { heading:'Kashmir Śaivism — Recognition Philosophy',
+        body:`Kashmir Śaivism — particularly the <em>Pratyabhijñā</em> ('Recognition') philosophy of Utpaladeva (c. 925 CE) and Abhinavagupta (c. 975–1025 CE) — is the most sophisticated philosophical system in the Sanskrit tradition, and its central term — <em>pratyabhijñā</em> (recognition — from <em>prati</em> + <em>abhi</em> + √<em>jñā</em>, to know — 'to know once again, to re-cognize') — is its entire philosophical program in a single Sanskrit word.\n\nThe Pratyabhijñā argument: the individual consciousness (<em>jīva</em>) is not a limited being who must achieve Brahman through discipline and practice — it is already identical with the universal Śiva-consciousness (<em>Paramāśiva</em>) but has forgotten this identity through the contraction (<em>saṃkoca</em>) of its own infinite freedom (<em>svātantrya</em>). Liberation (<em>mokṣa</em>) is not an achievement but a recognition — the moment when Śiva-consciousness recognizes itself in its own apparent limitation, when the wave recognizes that it was always the ocean. The sophistication of Abhinavagupta's Sanskrit arguments for this position — drawing on epistemology, ontology, aesthetics, linguistics and tantric practice — has no parallel in any philosophical tradition.` },
+      { heading:'Sanskrit and Neuroscience — Ancient Maps for Modern Science',
+        body:`Contemporary neuroscience and consciousness studies are increasingly engaging with Sanskrit philosophical texts as sources of phenomenological precision that Western cognitive science lacks. Several convergences are striking:\n\nPatañjali's <em>Yoga Sūtras</em> description of the modification of citta (mind-stuff) through the five types of vṛtti (modifications — <em>pramāṇa</em>/valid cognition, <em>viparyaya</em>/error, <em>vikalpa</em>/conceptual construction, <em>nidrā</em>/sleep, <em>smṛti</em>/memory) maps precisely onto what cognitive science calls 'modes of mental representation.' The Kashmir Śaivism concept of <em>spanda</em> (the primordial pulse of consciousness) is being explored as a potential framework for understanding the neural correlates of consciousness — the 'hard problem' of consciousness that current neuroscience cannot resolve. The Sanskrit concept of <em>turīya</em> (the fourth state — the background witness-awareness) corresponds closely to what recent consciousness research calls 'pure consciousness' or 'non-dual awareness' — a state being studied using advanced neuroimaging in experienced meditators. The Sanskrit precision in describing these states — with technical terms developed over 3,500 years of systematic introspection — is proving invaluable as a precise phenomenological map for neuroscientific investigation.` }
+    ],
+    refs:[
+      {name:'Open Sadhaka',url:'https://www.opensadhaka.com/'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'},
+      {name:'Archive.org — Shankaracharya',url:'https://archive.org/details/CompleteWorksOfSriSankaracharyaIn20Volumes1910Edition/'},
+      {name:'Vedyog',url:'https://vedyog.net/'}
+    ]
+  },
+  {
+    id:'l2_timeline', icon:'⏳', label:'Sanskrit Timeline', sublabel:'5000 Years',
+    color:'#1a7a6e', deva:'कालक्रम',
+    subtitle:'A complete chronological atlas of Sanskrit — 5,000 years of living language',
+    sections:[
+      { heading:'The Chronological Spectrum of Sanskrit',
+        body:`Sanskrit's documented history spans at least 3,500 years — from the composition of the oldest Ṛgvedic hymns (c. 1500 BCE, or perhaps earlier by the Indigenous Aryan hypothesis proponents) to the present day. No other classical language has an unbroken tradition of active use, literary production and scholarly development of this length. The following timeline traces the major milestones in Sanskrit's evolution and spread.` },
+      { heading:'Pre-1200 BCE — The Ṛgvedic Period',
+        body:`<em>c. 4500–6000 BCE</em>: The Proto-Indo-European language is spoken in (probably) the Pontic-Caspian steppe. The ancestors of Sanskrit, Greek, Latin, Germanic, Slavic, Celtic, Armenian, and Iranian are as yet undifferentiated. <em>c. 3300–1300 BCE</em>: The Indus Valley Civilization flourishes, with an undeciphered script on thousands of seals and tablets — its relationship to early Sanskrit (or Dravidian) languages remains debated. <em>c. 2000 BCE</em>: The Proto-Indo-Iranian language separates from other PIE branches; the ancestors of Vedic Sanskrit (Indo-Aryan) and Avestan Persian (Iranian) are becoming distinct. <em>c. 1500–1200 BCE</em>: The oldest hymns of the Ṛgveda are composed — Rigvedic Sanskrit, the oldest attested form of Sanskrit, is already a highly developed literary language. The Ṛgvedic composers are the seers (ṛṣis) of the tradition — Vasiṣṭha, Viśvāmitra, Gṛtsamada, Atri, Kanva, Bhāradvāja and others.` },
+      { heading:'1200 BCE – 500 BCE — Later Vedic to Classical Transition',
+        body:`<em>c. 1200–1000 BCE</em>: Composition of the Sāmaveda, Yajurveda, and Atharvaveda Saṃhitās. The divergence between the Ṛgvedic language and the later Vedic prose becomes more marked. <em>c. 1000–800 BCE</em>: Composition of the great Brāhmaṇas (Śatapatha, Aitareya, Taittirīya) in later Vedic prose. The transition from sacrificial to philosophical focus begins in the Āraṇyakas. <em>c. 800–500 BCE</em>: Composition of the principal Upaniṣads (Bṛhadāraṇyaka, Chāndogya, Taittirīya, Aitareya, Kauṣītaki) — the beginning of Sanskrit philosophical literature. The Upaniṣads establish the central concepts of Indian philosophy: Brahman, Ātman, Karma, Mokṣa, Māyā. <em>c. 500 BCE</em>: Pāṇini composes the Aṣṭādhyāyī — the formal codification of Classical Sanskrit. This date is debated (some place Pāṇini earlier). Buddhism and Jainism emerge, using Pali and Ardhamāgadhī rather than Sanskrit for their original scriptures.` },
+      { heading:'500 BCE – 500 CE — The Classical Period',
+        body:`<em>c. 400 BCE</em>: Kātyāyana writes the Vārttikas supplementing Pāṇini. Piṅgala composes the Chandaḥśāstra — founding Sanskrit prosody and discovering Pascal's triangle and binary number representation. <em>c. 200 BCE</em>: Patañjali writes the Mahābhāṣya and (possibly) the Yoga Sūtras. The Mahābhārata and Rāmāyaṇa reach approximately their current form — the largest works of Sanskrit literature and of world literature. The Nāṭya Śāstra of Bharata Muni is composed. <em>c. 200 BCE – 200 CE</em>: Sanskrit inscriptions begin to appear across India (the transition from Prakrit-medium to Sanskrit-medium public communication). Buddhist and Jain texts begin to be composed in Sanskrit (Buddhist Hybrid Sanskrit). <em>c. 1–500 CE</em>: The Gupta period — the Golden Age of Sanskrit. Kālidāsa, Āryabhaṭa, Bhāsa, Viśākhādatta, the Purāṇas, the Bhagavad Gītā commentary tradition, the development of Āyurvedic literature (Caraka, Suśruta). Sanskrit spreads to Southeast Asia through Buddhist and Hindu missionaries and traders.` },
+      { heading:'500 CE – Present — Medieval to Modern Sanskrit',
+        body:`<em>c. 500–800 CE</em>: Adi Shankaracharya (788–820 CE) reforms Hindu philosophy through his Advaita Vedānta commentaries. The great bhakti (devotional) poets begin composing in regional vernacular languages (derived from Sanskrit through Prakrit), though Sanskrit remains the prestige language. Ānandavardhana composes the Dhvanyāloka. <em>c. 800–1200 CE</em>: The golden age of Kashmir Śaivism — Vasugupta, Utpaladeva, Abhinavagupta, Kṣemarāja. Navya-Nyāya school develops in Bengal. The <em>Gītagovinda</em> of Jayadeva (12th century) — perhaps the most beloved Sanskrit poem after the Gītā — is composed. <em>1200–1800 CE</em>: Muslim invasions disrupt traditional Sanskrit learning centers in North India but Sanskrit continues in South India, under Hindu kings. The Saṃgīta Ratnākara of Śārṅgadeva (1210–1247 CE) codifies the music theory tradition. The Vijayanagara Empire (1336–1646 CE) is a major center of Sanskrit patronage. <em>1800–Present</em>: Western Indology rediscovers Sanskrit, founding modern linguistics. India's independence brings renewed Sanskrit support. The digital age enables global access to the Sanskrit tradition. Sanskrit continues as a living language — in scholarship, ritual, creative literature, and now, increasingly, in computational applications.` }
+    ],
+    refs:[
+      {name:'Vedic Heritage India',url:'https://vedicheritage.gov.in/introduction/'},
+      {name:'Sanskrit Documents',url:'https://sanskritdocuments.org/'},
+      {name:'Wisdom Library',url:'https://www.wisdomlib.org/'},
+      {name:'Hindupedia',url:'https://hindupedia.com/en/Veda'}
+    ]
+  },
+  {
+    id:'l2_learning', icon:'📚', label:'Learning Resources', sublabel:'Study Sanskrit',
+    color:'#8b1a2a', deva:'अध्ययन',
+    subtitle:'A curated guide to Sanskrit learning — from beginner to advanced',
+    sections:[
+      { heading:'The Sanskrit Learning Path',
+        body:`Sanskrit learning is traditionally described in three stages: <em>Śabda-bodha</em> (word knowledge — learning the vocabulary and basic grammar), <em>Vākya-bodha</em> (sentence knowledge — understanding how words combine into sentences following grammatical rules), and <em>Śāstra-bodha</em> (text knowledge — reading and understanding the classical texts). Each stage builds on the previous, and the tradition emphasizes that there is no shortcut: the full development of Sanskrit competence requires sustained engagement with the language through all three stages.\n\nThe traditional curriculum for Sanskrit learning begins with: the alphabet (<em>varṇamālā</em>) and correct pronunciation (<em>uccāraṇa</em>); sandhi rules (both internal and external); nominal declension (<em>vibhakti</em>) — beginning with a-stem masculine nouns, then other stems, then pronouns; verbal conjugation (<em>dhātupāṭha, lakaras</em>) — beginning with the present tense, then past and future; compound formation (<em>samāsa</em>); and finally, primary and secondary suffixation (<em>kṛt and taddhita pratyayas</em>). Only after this foundation is in place does the student approach the classical texts directly.` },
+      { heading:'Classical Sanskrit Learning Resources',
+        body:`Essential Sanskrit learning resources, both traditional and modern:\n\n<em>Monier-Williams Sanskrit-English Dictionary</em> (1872, available free online at cologne.de/cgi-bin/cous/MONIER) — the most comprehensive Sanskrit-English dictionary, an indispensable reference. <em>Arthur MacDonell's Sanskrit Grammar</em> — the standard introductory grammar for Western students. <em>M.R. Kale's Higher Sanskrit Grammar</em> — more detailed, used in Indian universities. <em>Siddhānta-Kaumudī</em> of Bhaṭṭoji Dīkṣita — the traditional Pāṇinian grammar reorganized by topic (used in India, with the assistance of the <em>Laghu-Siddhānta-Kaumudī</em> as an introductory version). <em>Śrī Pāṇini's Aṣṭādhyāyī</em> — for those who wish to learn Sanskrit grammar from its own foundational formulation. <em>Amarakośa</em> — the classical Sanskrit thesaurus (classified synonym dictionary) of Amarasiṃha, indispensable for vocabulary building.` },
+      { heading:'Digital Sanskrit Learning Platforms',
+        body:`The digital revolution has made Sanskrit learning more accessible than any previous era. Major online resources:\n\n<em>Sanskrit Documents</em> (sanskritdocuments.org) — the most comprehensive free repository of Sanskrit texts in multiple encodings. <em>The Sanskrit Heritage Site</em> (Sanskrit.inria.fr) — Gérard Huet's interactive Sanskrit reader with sandhi splitting and morphological analysis. <em>Vedadhara</em> (vedadhara.com) — Sanskrit texts with audio, translation and explanation. <em>Open Sadhaka</em> (opensadhaka.com) — Sanskrit learning in a traditional āśrama context. <em>Vyoma Sanskrit Pathaśālā</em> (YouTube channel) — Sanskrit learning videos in Hindi and English by traditional Vedic scholars. <em>Rashtriya Sanskrit Sansthan</em> — online Sanskrit courses from India's national Sanskrit university. <em>MOOC</em> Sanskrit courses from IIT Bombay and IIT Kanpur on NPTEL — free, high-quality Sanskrit instruction from premier technical institutions.` },
+      { heading:'Sanskrit in the Context of NadaBrahman',
+        body:`For the NadaBrahman platform, Sanskrit learning is not merely academic but an integration into the living knowledge tradition. The platform recommends a learning approach that combines: textual study (grammar and vocabulary, using the resources listed above); oral learning (listening to and eventually reciting Vedic chants and classical Sanskrit texts, using the audio resources on Vedadhara, Shlokam.org, and Sanskrit Documents); contemplative practice (using Sanskrit mantras, bīja syllables and Vedic chants in meditation and devotional practice, as described in the Yoga and Mantra modules); and analytical engagement (studying the philosophical, musical, dance and scientific texts of the tradition to understand how Sanskrit's grammar encodes the entire worldview of Indian civilization).\n\nThe goal is not merely linguistic competence — reading and writing Sanskrit — but what the tradition calls <em>Sanskrit-bodha</em>: Sanskrit consciousness. A state in which the practitioner's understanding of language, sound, meaning, consciousness and cosmos is transformed by sustained immersion in the Sanskrit tradition's wisdom about all of these domains.` },
+      { heading:'Sanskrit Study Groups and Communities',
+        body:`Sanskrit learning thrives in community. Major Sanskrit learning communities and institutions:\n\n<em>Samskrita Bharati</em> — an international organization dedicated to making Sanskrit a spoken language, with branches in 31 countries. They organize spoken Sanskrit camps (<em>Saṃskṛta Saptāha</em>), workshops and residential courses. <em>WAVES</em> (World Association for Vedic Studies) — an international academic organization supporting Sanskrit scholarship. <em>Indological societies</em> in Germany (Deutsche Morgenländische Gesellschaft), France (École française d'Extrême-Orient), UK (Royal Asiatic Society), and USA (American Oriental Society) are centers of Sanskrit scholarship. <em>The Kuppuswami Sastri Research Institute</em> (Chennai), the <em>Bhandarkar Oriental Research Institute</em> (Pune), the <em>Oriental Research Institute</em> (Mysore), and the <em>Sanskrit College</em> (Kolkata) are the leading Indian institutions for advanced Sanskrit studies. Online communities: the Sanskrit Stack Exchange (linguistics.stackexchange.com with Sanskrit tag), various Sanskrit WhatsApp groups and Facebook groups connecting practitioners worldwide. The NadaBrahman platform's Connect section is itself a point of contact for those who wish to engage more deeply with the Sanskrit tradition in the context of music, dance, mantra and yogic practice.` }
+    ],
+    refs:[
+      {name:'Sanskrit Documents',url:'https://sanskritdocuments.org/'},
+      {name:'Open Sadhaka',url:'https://www.opensadhaka.com/'},
+      {name:'Vedic Heritage India',url:'https://vedicheritage.gov.in/introduction/'},
+      {name:'Vedadhara',url:'https://www.vedadhara.com/'}
+    ]
+  }
+];
+
+/* ──────────────────────────────────────────────
+   RENDER ENGINE
+────────────────────────────────────────────── */
+
+function buildLayer(tabs, railId, panelsId, layerNum) {
+  const rail   = document.getElementById(railId);
+  const panels = document.getElementById(panelsId);
+
+  tabs.forEach((tab, idx) => {
+    // Tab button
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (idx === 0 ? ' active' : '');
+    btn.dataset.color = tab.color;
+    btn.dataset.idx = idx;
+    btn.dataset.layer = layerNum;
+    btn.innerHTML = `<span class="tab-icon">${tab.icon}</span><span class="tab-label">${tab.label}</span>`;
+    btn.onclick = () => switchTab(layerNum, idx);
+    rail.appendChild(btn);
+
+    // Panel
+    const panel = document.createElement('div');
+    panel.id = `panel_${layerNum}_${idx}`;
+    panel.className = 'tab-panel' + (idx === 0 ? ' active' : '');
+    panel.innerHTML = buildPanel(tab);
+    panels.appendChild(panel);
+  });
+}
+
+function buildPanel(tab) {
+  const color = tab.color;
+
+  let sectionsHTML = tab.sections.map(s => `
+    <div class="section-card" style="--card-color:${color}">
+      <style>.section-card::before { background: ${color}; }</style>
+      <div class="section-heading">${s.heading}</div>
+      <div class="section-body">${s.body.replace(/\n/g,'<br>')}</div>
+    </div>
+  `).join('');
+
+  let refsHTML = tab.refs ? `
+    <div class="refs-bar">
+      <span class="refs-label">📖 References</span>
+      ${tab.refs.map(r => `<a class="ref-link" href="${r.url}" target="_blank" rel="noopener">${r.name}</a>`).join('')}
+    </div>` : '';
+
+  return `
+    <div class="panel-hero" data-deva="${tab.deva}" style="background: linear-gradient(135deg, rgba(15,11,7,0) 0%, ${color}12 100%)">
+      <div class="panel-hero-inner">
+        <span class="panel-icon">${tab.icon}</span>
+        <h2 class="panel-title">${tab.label} — <span class="accent">${tab.sublabel}</span></h2>
+        <p class="panel-sub">${tab.subtitle}</p>
+        <div class="panel-line" style="background: linear-gradient(90deg, ${color}, transparent)"></div>
+      </div>
+    </div>
+    <div class="panel-body">${sectionsHTML}</div>
+    ${refsHTML}
+  `;
+}
+
+function switchTab(layerNum, idx) {
+  const tabs = layerNum === 1 ? L1 : L2;
+  const railId = `tabRail${layerNum}`;
+  const panelsId = `panels${layerNum}`;
+  const counterId = `counter${layerNum}`;
+
+  // Update buttons
+  document.querySelectorAll(`#${railId} .tab-btn`).forEach((b, i) => {
+    b.classList.toggle('active', i === idx);
+  });
+
+  // Update panels
+  document.querySelectorAll(`#panels${layerNum} .tab-panel`).forEach((p, i) => {
+    p.classList.toggle('active', i === idx);
+  });
+
+  // Update counter
+  document.getElementById(counterId).textContent = `Tab ${idx+1} of ${tabs.length} — ${tabs[idx].label}: ${tabs[idx].sublabel}`;
+
+  // Scroll tab into view
+  const activeBtnEl = document.querySelectorAll(`#${railId} .tab-btn`)[idx];
+  if (activeBtnEl) activeBtnEl.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+}
+
+function switchLayer(layerNum, btn) {
+  document.querySelectorAll('.layer-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.layer-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(`layer${layerNum}`).classList.add('active');
+}
+
+function handleSearch(query) {
+  if (!query.trim()) return;
+  const q = query.toLowerCase();
+  const allTabs = [...L1, ...L2];
+  for (let li = 0; li < 2; li++) {
+    const tabs = li === 0 ? L1 : L2;
+    tabs.forEach((tab, idx) => {
+      const text = tab.label + tab.subtitle + tab.sections.map(s=>s.heading+s.body).join(' ');
+      if (text.toLowerCase().includes(q)) {
+        switchLayer(li+1, document.querySelectorAll('.layer-btn')[li]);
+        switchTab(li+1, idx);
+        return;
+      }
+    });
+  }
+}
+
+// Initialize
+buildLayer(L1, 'tabRail1', 'panels1', 1);
+buildLayer(L2, 'tabRail2', 'panels2', 2);
+</script>
+</body>
+</html>
